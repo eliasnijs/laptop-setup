@@ -1,0 +1,55 @@
+Xft.dpi:        96
+Xft.antialias:  true
+Xft.hinting:    true
+Xft.rgba:       rgb
+Xft.hintstyle:  hintslight
+
+Xcursor.size: 8
+Xcursor.theme: Alkano-Aluminium
+
+!URxvt
+URxvt.depth: 32
+URxvt.letterSpace: -1
+URxvt.scrollBar: false
+URxvt.geometry: 120x30
+URxvt.internalBorder: 12
+URxvt*termName:rxvt-unicode-256color
+URxvt*font: xft:monospace:size=12, xft:symbola:size=10:minspace=False
+
+! special
+*.foreground:   #DDDDDD
+*.background:   #141414
+*.cursorColor:  #ffffff
+
+! black
+*.color0:       #282a2e
+*.color8:       #373b41
+
+! red
+*.color1:       #EE483E
+*.color9:       #EE483E
+
+! green
+*.color2:       #BBEE3E
+*.color10:      #DDDDDD
+
+! yellow
+*.color3:       #EEBD3E
+*.color11:      #EEBD3E
+
+! blue
+*.color4:       #ffffff
+*.color12:      #ffffff
+
+! magenta
+*.color5:       #8C8C8C
+*.color13:      #8C8C8C
+
+! cyan
+*.color6:       #5e8d87
+*.color14:      #8abeb7
+
+! white
+*.color7:       #DDDDDD
+*.color15:      #DDDDDD
+
