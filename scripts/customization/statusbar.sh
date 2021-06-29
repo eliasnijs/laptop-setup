@@ -1,5 +1,9 @@
 #!/bin/sh
 
+# !DISABLED PROPERTIES
+#  1. CPU
+#  2. MEMORY
+
 
 #author: elias nijs
 #date:   2021-06-03
@@ -7,12 +11,12 @@
 # SATUSBAR
 
 tick=0.5
-
 name="ELIAS' LAPTOP"
 weather="not set"
 stocks="not set"
 memory="not set"
 cpu="not set"
+volume="not set"
 battery="not set"
 date="not set"
 
@@ -45,25 +49,33 @@ set_stocks () {
 	p=""
 	for x in $t
 	do
-		r=$(~/scripts/stockupdate.py $x | grep -o "value: [^\s]* - " | sed "s/value: //" | sed "s/ - //" | xargs -i echo {}$)
-		p=$(echo "$p | $x: $r")
+		r=$(~/scripts/other-utilities/stock-getticker.py $x | grep -o "value: [^\s]* - " | sed "s/value: //" | sed "s/ - //" | xargs -i echo {}$)
+      p=$(echo "$p | $x: $r")
 	done
-	stocks=$(echo $p | sed "s/|//")
+   stocks=$(echo $p | sed "s/|//")
 }
 
 set_weather () {
-   weather=$(curl wttr.in/Gent?format="%C+%t")
-   if [ $(echo $weather | wc -c) -gt 30 ]; then
-      weather="!ERROR"
-   fi
+   weather=$(~/scripts/other-utilities/weather.sh)
+}
+
+set_volume () {
+   volume=$(echo "AUD $(~/scripts/audio/audio-visualise.sh)")
+}
+
+
+set_bar () {
+   xsetroot -name "$stocks | $weather | $volume | $battery | $date "
 }
 
 set_date
 set_battery
-set_cpu
-set_memory
+#set_cpu
+#set_memory
 set_stocks
 set_weather
+
+echo ok
 
 while true
 do
@@ -84,18 +96,20 @@ do
       # every minute
       status=$(cat /sys/class/power_supply/BAT1/status)
       if [ $(echo $battery | grep -o "...$" | grep -o "^.." | bc) -ge 90 ] && [ "$status" = "Charging" ]; then
-         ~/scripts/alert.sh Battery Unplug charging cable
+         ~/scripts/other-utilities/notify.sh Battery Unplug charging cable
       elif [ $(echo $battery | grep -o "...$" | grep -o "^.." | bc) -le 20 ] && [ "$status" = "Discharging" ]; then
-         ~/scripts/alert.sh Battery Plug-in charging cable
+         ~/scripts/other-utilities/notify.sh Battery Plug-in charging cable
       fi
    fi
 
 	# every tick
 	set_date
 	set_battery
-	set_cpu
-	set_memory
-		
-	xsetroot -name " $stocks | $weather | $memory | $cpu | $battery | $date "
+	#set_cpu
+	#set_memory
+	set_volume
+
+   set_bar
+
    sleep $tick
 done

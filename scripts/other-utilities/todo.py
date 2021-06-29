@@ -1,20 +1,15 @@
 #!/usr/bin/env python3
 
 #author: elias nijs
-#date    2021-06-06
+#start-date     2021-06-06
+#last-updated   2020-06-29
 
 # TODOSCRIPT
-
- # Steps
- # 1. read -> array
- # 2. get option -> act accordingly
- # 3. write
-
 
 import sys
 
 items = []
-for x in open("/home/eliasnijs/scripts/.config/todo"):
+for x in open("/home/eliasnijs/scripts/.storage/todo"):
     items.append(x.strip())
 
 args = sys.argv[1:]
@@ -37,7 +32,7 @@ else:
         assert 0 <= index < len(items), "invalid index"
         items.pop(index)
 
-    items = "\n".join(items)"
-    f = open("/home/eliasnijs/scripts/.config/todo","w")
+    items = "\n".join(items)
+    f = open("/home/eliasnijs/scripts/.storage/todo","w")
     f.write(items)
     f.close()
