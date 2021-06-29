@@ -19,4 +19,4 @@ set expandtab               " convert tabs to white space
 set shiftwidth=3            " width for autoindents
 set softtabstop=3           " see multiple spaces as tabstops so <BS> does the right thing
 
-colorscheme rams
+colorscheme default
