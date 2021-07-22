@@ -1,6 +1,6 @@
 #!/bin/sh
 
-port=$(~/scripts/audio/audio-port)
+port=$(audio-port)
 
 level=$(amixer -c 1 get $port | grep -o "[0-9]*%" | head -1 | sed "s/%//")
 

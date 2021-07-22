@@ -1,7 +1,17 @@
-#!/bin/sh
+#!/bin/bash
 
-if [ "$(echo $* | wc -c)" -gt 1 ]; then
-   cp $* ~/scripts/.config/wallpaper/wallpaper 
+if [ "$1" = 'add' ]; then
+   cp $2 ~/Documents/linux/elias-linux-build/scripts/.config/wallpaper/
+else
+   if [ "$1" = "random" ]; then
+      files=$(ls ~/Documents/linux/elias-linux-build/scripts/.config/wallpaper/)
+      file=$(echo $files | cut -d " " -f $(echo $((1 + $RANDOM % $(echo $files | wc -w)))) | sed "s/ //g")   
+      cp ~/Documents/linux/elias-linux-build/scripts/.config/wallpaper/$file ~/Documents/linux/elias-linux-build/scripts/.config/wallpaper/wallpaper 
+      feh --bg-fill ~/Documents/linux/elias-linux-build/scripts/.config/wallpaper/$file
+   else
+      if [ "$(echo $* | wc -c)" -gt 1 ]; then
+         cp $* ~/Documents/linux/elias-linux-build/scripts/.config/wallpaper/wallpaper 
+      fi
+      feh --bg-fill ~/Documents/linux/elias-linux-build/scripts/.config/wallpaper/wallpaper
+   fi
 fi
-
-feh --bg-fill ~/scripts/.config/wallpaper/wallpaper

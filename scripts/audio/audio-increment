@@ -2,7 +2,7 @@
 
 mode="%+"
 number=5
-port=$(~/scripts/audio/audio-port)
+port=$(audio-port)
 
 modeconversion () {
    if [ $* = "plus" ]; then
@@ -26,4 +26,4 @@ elif [ $argnr -eq 1 ]; then
 fi
 
 amixer -q -c 1 set $port $number$mode
-~/scripts/audio/audio-visualise
+audio-visualise

@@ -9,7 +9,7 @@
 import sys
 
 items = []
-for x in open("/home/eliasnijs/scripts/.storage/todo"):
+for x in open("/home/eliasnijs/Documents/linux/elias-linux-build/scripts/.storage/todo"):
     items.append(x.strip())
 
 args = sys.argv[1:]
@@ -33,6 +33,6 @@ else:
         items.pop(index)
 
     items = "\n".join(items)
-    f = open("/home/eliasnijs/scripts/.storage/todo","w")
+    f = open("/home/eliasnijs/Documents/linux/elias-linux-build/scripts/.storage/todo","w")
     f.write(items)
     f.close()

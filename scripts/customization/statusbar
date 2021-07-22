@@ -45,36 +45,37 @@ set_memory () {
 }
 
 set_stocks () {
-   t=$(cat ~/scripts/.config/stocks)
+   t=$(cat ~/Documents/linux/elias-linux-build/scripts/.config/stocks)
 	p=""
 	for x in $t
 	do
-		r=$(~/scripts/other-utilities/stock-getticker $x | grep -o "value: [^\s]* - " | sed "s/value: //" | sed "s/ - //" | xargs -i echo {}$)
+		r=$(stock-getticker $x | grep -o "value: [^\s]* - " | sed "s/value: //" | sed "s/ - //" | xargs -i echo {}$)
       p=$(echo "$p | $x: $r")
 	done
    stocks=$(echo $p | sed "s/|//")
 }
 
 set_weather () {
-   weather=$(~/scripts/other-utilities/weather)
+   weather=$(weather)
 }
 
 set_volume () {
-   volume=$(echo "AUD $(~/scripts/audio/audio-visualise)")
+   volume=$(echo "AUD $(audio-visualise)")
 }
 
 
 set_bar () {
-   xsetroot -name "$stocks | $weather | $volume | $battery | $date "
+   xsetroot -name " $volume | $battery | $date "
 }
 
 
 set_date
 set_battery
-#set_cpu
+set_volume
+#set_cpue
 #set_memory
-set_stocks
-set_weather
+#set_stocks
+#set_weather
 
 while true
 do
@@ -86,18 +87,20 @@ do
    if [ "$min3" = "00" ]; then
 	   # every hour
 	   if [ "$min1$min2" = "00"  ]; then 
-		   set_weather
-	   fi
+		   #set_weather
+	      set_date
+      fi
 	   # every 10 min
 	   if [ "$min2" = "0" ]; then 
-		   set_stocks	
+		   #set_stocks
+         set_date
       fi
       # every minute
       status=$(cat /sys/class/power_supply/BAT1/status)
       if [ $(echo $battery | grep -o "...$" | grep -o "^.." | bc) -ge 90 ] && [ "$status" = "Charging" ]; then
-         ~/scripts/other-utilities/notify Battery Unplug charging cable
+         notify Battery Unplug charging cable
       elif [ $(echo $battery | grep -o "...$" | grep -o "^.." | bc) -le 20 ] && [ "$status" = "Discharging" ]; then
-         ~/scripts/other-utilities/notify Battery Plug-in charging cable
+         notify Battery Plug-in charging cable
       fi
    fi
 
