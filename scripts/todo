@@ -9,7 +9,7 @@
 import sys
 
 items = []
-for x in open("/home/eliasnijs/Documents/linux/elias-linux-build/scripts/.storage/todo"):
+for x in open("/home/eliasnijs/Documents/linux/scripts/.storage/todo"):
     items.append(x.strip())
 
 args = sys.argv[1:]
@@ -28,11 +28,11 @@ else:
         items.append(item)
     if opt == 'r':
         assert item.isdigit(), "invalid index"
-        index = int(item)
+        index = int(item) - 1 
         assert 0 <= index < len(items), "invalid index"
         items.pop(index)
 
     items = "\n".join(items)
-    f = open("/home/eliasnijs/Documents/linux/elias-linux-build/scripts/.storage/todo","w")
+    f = open("/home/eliasnijs/Documents/linux/scripts/.storage/todo","w")
     f.write(items)
     f.close()

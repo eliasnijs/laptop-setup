@@ -1,0 +1,17 @@
+#!/bin/bash
+
+if [ "$1" = 'add' ]; then
+   cp $2 ~/Documents/linux/scripts/.config/wallpaper/
+else
+   if [ "$1" = "random" ]; then
+      files=$(ls ~/Documents/linux/scripts/.config/wallpaper/)
+      file=$(echo $files | cut -d " " -f $(echo $((1 + $RANDOM % $(echo $files | wc -w)))) | sed "s/ //g")   
+      cp ~/Documents/linux/scripts/.config/wallpaper/$file ~/Documents/linux/scripts/.config/wallpaper/wallpaper 
+      feh --bg-fill ~/Documents/linux/scripts/.config/wallpaper/$file
+   else
+      if [ "$(echo $* | wc -c)" -gt 1 ]; then
+         cp $* ~/Documents/linux/scripts/.config/wallpaper/wallpaper 
+      fi
+      feh --bg-fill ~/Documents/linux/scripts/.config/wallpaper/wallpaper
+   fi
+fi

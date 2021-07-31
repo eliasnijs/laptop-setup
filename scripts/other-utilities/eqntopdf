@@ -1,3 +1,0 @@
-#!/bin/sh
-
-eqn $1 -Tpdf | groff -ms -Tpdf > $2.pdf

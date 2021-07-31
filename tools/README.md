@@ -1,4 +1,0 @@
-- **terminal**: urxvt
-- **coding**: vim + intellij-ultimate
-- **reading pdf's**: zathura
-- **webbrowser**: chromium
