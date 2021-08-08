@@ -1,0 +1,50 @@
+open document in fit-width mode by default
+set adjust-open "best-fit"
+
+# One page per row by default
+set pages-per-row 1
+
+#stop at page boundries
+set scroll-page-aware "true"
+set smooth-scroll "true"
+set scroll-full-overlap 0.01
+set scroll-step 100
+
+#zoom settings
+set zoom-min 10
+set guioptions ""
+
+# zathurarc-dark
+
+set default-bg "#eeeeee" #00
+set default-fg "#ffffff" #01
+
+set statusbar-fg "#B0B0B0" #04
+set statusbar-bg "#202020" #01
+
+set inputbar-bg "#141414" #00 currently not used
+set inputbar-fg "#FFFFFF" #02
+
+set notification-error-bg "#AC4142" #08
+set notification-error-fg "#151515" #00
+
+set notification-warning-bg "#AC4142" #08
+set notification-warning-fg "#151515" #00
+
+set highlight-color "#b8dbd9" #0A
+set highlight-active-color "#6A9FB5" #0D
+
+set completion-highlight-fg "#141414" #02
+set completion-highlight-bg "#eeeeee" #0C
+
+set completion-bg "#303030" #02
+set completion-fg "#E0E0E0" #0C
+
+set notification-bg "#141414" #0B
+set notification-fg "#eeeeee" #00
+
+set recolor "true"
+set recolor-lightcolor "#eeeeee" #00
+set recolor-darkcolor "#2c2c2c" #06
+set recolor-reverse-video "true"
+set recolor-keephue "true"

@@ -16,5 +16,8 @@ do
    index=$(( $index + 1 ))
 done
 
-echo "[$visual] $level%"
-
+if [ "$1" = "-p" ]; then
+   echo "$level%"
+else
+   echo "[$visual] $level%"
+fi

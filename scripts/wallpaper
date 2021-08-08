@@ -1,17 +1,67 @@
 #!/bin/bash
 
-if [ "$1" = 'add' ]; then
-   cp $2 ~/Documents/linux/scripts/.config/wallpaper/
-else
-   if [ "$1" = "random" ]; then
-      files=$(ls ~/Documents/linux/scripts/.config/wallpaper/)
-      file=$(echo $files | cut -d " " -f $(echo $((1 + $RANDOM % $(echo $files | wc -w)))) | sed "s/ //g")   
-      cp ~/Documents/linux/scripts/.config/wallpaper/$file ~/Documents/linux/scripts/.config/wallpaper/wallpaper 
-      feh --bg-fill ~/Documents/linux/scripts/.config/wallpaper/$file
-   else
-      if [ "$(echo $* | wc -c)" -gt 1 ]; then
-         cp $* ~/Documents/linux/scripts/.config/wallpaper/wallpaper 
-      fi
-      feh --bg-fill ~/Documents/linux/scripts/.config/wallpaper/wallpaper
-   fi
+# author:         eliasnijs
+# last-updated:   2021-08-05
+
+# ___________________
+# todo
+#
+# 1 - list all images
+# 2 - remove images
+
+
+wallpaperfolder='/home/eliasnijs/System/scripts/.config/wallpaper'
+wallpaperlocation='/home/eliasnijs/System/scripts/.config/wallpaper/wallpaper'
+
+add=0
+file=""
+random=0
+folder="$wallpaperfolder"
+setwallpaper=0
+wallpaper=""
+
+
+while getopts ":a:rfs:" opt
+do
+   case "${opt}" in
+      a)
+         add=1
+         file="${OPTARG}"
+         ;;
+      r)
+         random=1
+         ;;
+      f)
+         random=1
+         folder=$(pwd)
+         ;;
+      s)
+         setwallpaper=1
+         wallpaper="${OPTARG}"
+         ;;
+      \?) 
+         echo "AssertionError: invalid options"
+         exit 1
+         ;;
+   esac
+done
+shift $((OPTIND-1))
+
+
+if [ "$add" -eq "1" ]; then
+   cp $file $wallpaperfolder 
 fi
+
+if [ "$random" -eq "1" ]; then
+   files=$(find $folder -name '*' -exec file {} \; | grep -o -P '^.+: \w+ image' | sed s/:.*image//)
+   file=$(echo $files | cut -d " " -f $(echo $((1 + $RANDOM % $(echo $files | wc -w)))) | sed "s/ //g")   
+   cp $file $wallpaperlocation 
+fi
+
+if [ "$setwallpaper" -eq "1" ]; then
+   cp $wallpaper $wallpaperlocation 
+
+fi
+
+
+feh --bg-fill $wallpaperlocation

@@ -7,6 +7,7 @@ call plug#begin()
   Plug 'tomtom/tcomment_vim'
   Plug 'airblade/vim-gitgutter'
   Plug 'junegunn/fzf', { 'do': { -> fzf#install() } }
+  Plug 'Valloric/YouCompleteMe'
 call plug#end()
 
 let g:indent_guides_guide_size = 1
@@ -33,5 +34,5 @@ set cursorline
 set relativenumber
 
 colorscheme PaperColor
-
+set background=light
 

@@ -1,8 +1,11 @@
 #!/bin/sh
 
+# ! run with sudo
+
+cd $(dirname $0)
+
 for file in $(find . -executable -type f -print)
 do
-    cp $file /usr/local/bin
+    ln -s "$(pwd)$(echo $file | sed "s/\.//")" "/usr/local/bin"
 done
 
-rm /usr/local/bin/setup
