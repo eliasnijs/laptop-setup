@@ -18,4 +18,3 @@ set postponed = "+Drafts"
 
 mailboxes =INBOX =Sent =Drafts =Junk =Trash
 
-source ~/.config/mutt/colors
