@@ -5,12 +5,10 @@
 
 #   STOCKUPDATE
 
-
 import sys
 from bs4 import BeautifulSoup as bs
 import requests
 import re
-
     
 stock = str(sys.argv[1])
 soup = bs(requests.get('https://finance.yahoo.com/quote/' + stock + '?p=' + stock).content,"html.parser")
