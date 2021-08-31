@@ -1,13 +1,17 @@
+set nocompatible
 
 call plug#begin()
-  Plug 'preservim/nerdtree'
-  Plug 'vim-airline/vim-airline'
-  Plug 'stefanvanburen/rams.vim'
-  Plug 'NLKNguyen/papercolor-theme'
-  Plug 'tomtom/tcomment_vim'
-  Plug 'airblade/vim-gitgutter'
-  Plug 'junegunn/fzf', { 'do': { -> fzf#install() } }
-  Plug 'Valloric/YouCompleteMe'
+   Plug 'preservim/nerdtree'
+   Plug 'vim-airline/vim-airline'
+   Plug 'stefanvanburen/rams.vim'
+   Plug 'NLKNguyen/papercolor-theme'
+   Plug 'tomtom/tcomment_vim'
+   Plug 'airblade/vim-gitgutter'
+   Plug 'junegunn/fzf'
+   Plug 'Valloric/YouCompleteMe'
+   Plug 'sheerun/vim-polyglot'
+   Plug 'sainnhe/everforest'
+   Plug 'morhetz/gruvbox'
 call plug#end()
 
 let g:indent_guides_guide_size = 1
@@ -25,14 +29,18 @@ set nowrap
 
 syntax on                   " syntax highlighting
 filetype plugin indent on   " allow auto-indenting depending on file type
-set tabstop=3               " number of columns occupied by a tab character
-set expandtab               " convert tabs to white space
+set tabstop=3               " number of columns occupied by a t expandtab               " convert tabs to white space
 set shiftwidth=3            " width for autoindents
 set softtabstop=3           " see multiple spaces as tabstops so <BS> does the right thing
 set background=dark
 set cursorline
 set relativenumber
 
-colorscheme PaperColor
-set background=light
+colorscheme gruvbox
 
+nnoremap mq :q<CR>
+nnoremap ms :wq<CR>
+nnoremap mw :w<CR>
+nnoremap mm :w<CR>:!buildsh<CR>
+nnoremap mr :w<Cr>:!runsh<CR>
+nnoremap me :w<CR>:!buildsh && runsh<CR>

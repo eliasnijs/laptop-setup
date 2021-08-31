@@ -3,13 +3,6 @@
 # author:         eliasnijs
 # last-updated:   2021-08-05
 
-# ___________________
-# todo
-#
-# 1 - list all images
-# 2 - remove images
-
-
 wallpaperfolder='/home/eliasnijs/System/scripts/.config/wallpaper'
 wallpaperlocation='/home/eliasnijs/System/scripts/.config/wallpaper/wallpaper'
 
@@ -19,7 +12,6 @@ random=0
 folder="$wallpaperfolder"
 setwallpaper=0
 wallpaper=""
-
 
 while getopts ":a:rfs:" opt
 do
@@ -47,7 +39,6 @@ do
 done
 shift $((OPTIND-1))
 
-
 if [ "$add" -eq "1" ]; then
    cp $file $wallpaperfolder 
 fi
@@ -60,8 +51,6 @@ fi
 
 if [ "$setwallpaper" -eq "1" ]; then
    cp $wallpaper $wallpaperlocation 
-
 fi
-
 
 feh --bg-fill $wallpaperlocation

@@ -22,7 +22,6 @@ if len(args) <= 1:
 else:
     opt = args[0]
     item = " ".join(args[1:])
-    
     assert opt == 'a' or opt == 'r', "invalid option"
     if opt == 'a':
         items.append(item)

@@ -1,0 +1,14 @@
+#!/bin/sh
+f=5
+while [ $f -gt 0 ]
+do
+   a=$(find . -type f -name "build.sh")
+   if [ "$a" = "./build.sh" ]; then
+      echo "file found..."
+      ./build.sh
+      f=0
+   else
+      cd ../
+      f=$(echo "$f-1" | bc)
+   fi
+done
