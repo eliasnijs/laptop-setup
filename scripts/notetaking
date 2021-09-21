@@ -1,0 +1,4 @@
+#!/bin/sh
+
+cd /home/eliasnijs/Notetaking/
+vim /home/eliasnijs/Notetaking/Notetaking.md

@@ -1,46 +1,75 @@
 set nocompatible
 
 call plug#begin()
+	" functionality
    Plug 'preservim/nerdtree'
    Plug 'vim-airline/vim-airline'
-   Plug 'stefanvanburen/rams.vim'
-   Plug 'NLKNguyen/papercolor-theme'
    Plug 'tomtom/tcomment_vim'
    Plug 'airblade/vim-gitgutter'
    Plug 'junegunn/fzf'
    Plug 'Valloric/YouCompleteMe'
-   Plug 'sheerun/vim-polyglot'
-   Plug 'sainnhe/everforest'
+	" colorschemes 
+	Plug 'sheerun/vim-polyglot'
+   Plug 'NLKNguyen/papercolor-theme'
+   Plug 'stefanvanburen/rams.vim'
    Plug 'morhetz/gruvbox'
+	Plug 'sainnhe/sonokai'
+	Plug 'joshdick/onedark.vim'
+	Plug 'tomasiser/vim-code-dark'
+	Plug 'doums/darcula'
+	Plug 'CreaturePhil/vim-handmade-hero'
+	Plug 'sainnhe/everforest'
+	Plug 'gosukiwi/vim-atom-dark'
+	Plug 'altercation/vim-colors-solarized'
+	Plug 'lifepillar/vim-solarized8'
 call plug#end()
+
+let NERDTreeQuitOnOpen=0
+let NERDTreeQuitOnOpen=0
 
 let g:indent_guides_guide_size = 1
 let g:indent_guides_color_change_percent = 3
 let g:indent_guides_enable_on_vim_startup = 1
 
+" directory
+nnoremap md :NERDTree<CR>
+nnoremap mf :FZF<CR>
+
+" building and saving
+nnoremap mq :q<CR>
+nnoremap mw :wq<CR>
+nnoremap ms :w<CR>
+nnoremap mm :w<CR>:!buildsh<CR>
+nnoremap mr :w<Cr>:!runsh<CR>
+nnoremap me :w<CR>:!buildsh && runsh<CR>
+
+" windows
+nnoremap wv :vertical resize 
+nnoremap wh :resize
+
+" other
+nnoremap maif :set noautoindent
+nnoremap mait :set autoindent
+
+
 set showmatch               " show matching brackets.
-set ignorecase              " case insensitive matching
 set mouse=v                 " middle-click paste with mouse
 set hlsearch                " highlight search results
-set autoindent              " indent a new line the same amount as the line just typed
 set number                  " add line numbers
-set wildmode=longest,list   " get bash-like tab completions
 set nowrap
-
-syntax on                   " syntax highlighting
-filetype plugin indent on   " allow auto-indenting depending on file type
-set tabstop=3               " number of columns occupied by a t expandtab               " convert tabs to white space
+set autoindent
+set tabstop=3               " number of columns occupied by an expandtab
 set shiftwidth=3            " width for autoindents
 set softtabstop=3           " see multiple spaces as tabstops so <BS> does the right thing
 set background=dark
 set cursorline
 set relativenumber
+syntax on                   " syntax highlighting
+filetype plugin indent on   " allow auto-indenting depending on file type
 
-colorscheme gruvbox
+let g:solarized_termcolors=256
+colorscheme everforest
 
-nnoremap mq :q<CR>
-nnoremap ms :wq<CR>
-nnoremap mw :w<CR>
-nnoremap mm :w<CR>:!buildsh<CR>
-nnoremap mr :w<Cr>:!runsh<CR>
-nnoremap me :w<CR>:!buildsh && runsh<CR>
+let &t_8f = "\<Esc>[38;2;%lu;%lu;%lum"
+let &t_8b = "\<Esc>[48;2;%lu;%lu;%lum"
+set termguicolors
