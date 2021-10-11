@@ -1,0 +1,12 @@
+#!/bin/sh
+
+file=$(find . -maxdepth 1 -name "README*")
+if test $file; then
+	if [ "$(wc -l $file | cut -d " " -f 1)" -le "10" ]; then
+		catmd $file | sed -e :a -e '/^\n*$/{$d;N;};/\n$/ba'
+		echo " "
+	fi
+fi
+
+ls --color=auto
+

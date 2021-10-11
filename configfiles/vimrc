@@ -7,26 +7,87 @@ call plug#begin()
    Plug 'tomtom/tcomment_vim'
    Plug 'airblade/vim-gitgutter'
    Plug 'junegunn/fzf'
-   Plug 'Valloric/YouCompleteMe'
+	Plug 'neoclide/coc.nvim', {'branch': 'release'}
+	Plug 'junegunn/goyo.vim'
+	" Haskell
+	Plug 'alx741/vim-hindent'
+	Plug 'dense-analysis/ale'
+	Plug 'parsonsmatt/intero-neovim'
 	" colorschemes 
 	Plug 'sheerun/vim-polyglot'
-   Plug 'NLKNguyen/papercolor-theme'
-   Plug 'stefanvanburen/rams.vim'
-   Plug 'morhetz/gruvbox'
-	Plug 'sainnhe/sonokai'
-	Plug 'joshdick/onedark.vim'
-	Plug 'tomasiser/vim-code-dark'
-	Plug 'doums/darcula'
-	Plug 'CreaturePhil/vim-handmade-hero'
-	Plug 'sainnhe/everforest'
-	Plug 'gosukiwi/vim-atom-dark'
-	Plug 'altercation/vim-colors-solarized'
 	Plug 'lifepillar/vim-solarized8'
 call plug#end()
 
+   " Plug 'NLKNguyen/papercolor-theme'
+   " Plug 'stefanvanburen/rams.vim'
+   " Plug 'morhetz/gruvbox'
+	" Plug 'sainnhe/sonokai'
+	" Plug 'joshdick/onedark.vim'
+	" Plug 'tomasiser/vim-code-dark'
+	" Plug 'doums/darcula'
+	" Plug 'CreaturePhil/vim-handmade-hero'
+	" Plug 'sainnhe/everforest'
+	" Plug 'gosukiwi/vim-atom-dark'
+	" Plug 'altercation/vim-colors-solarized'
+
+" Haskell
+let g:haskell_indent_if = 2
+let g:haskell_indent_before_where = 2
+let g:haskell_indent_case_alternative = 1
+let g:haskell_indent_let_no_in = 0
+let g:ale_linters = {}
+let g:ale_linters.haskell = ['stack-ghc-mod', 'hlint']
+let g:haskell_indent_if = 2
+let g:haskell_indent_before_where = 2
+let g:haskell_indent_case_alternative = 1
+let g:haskell_indent_let_no_in = 0
+let g:hindent_on_save = 0
+function! HaskellFormat(which) abort
+  if a:which ==# 'hindent' || a:which ==# 'both'
+    :Hindent
+  endif
+  if a:which ==# 'stylish' || a:which ==# 'both'
+    silent! exe 'undojoin'
+    silent! exe 'keepjumps %!stylish-haskell'
+  endif
+endfunction
+augroup haskellStylish
+  au!
+  au FileType haskell nnoremap <leader>hi :Hindent<CR>
+  au FileType haskell nnoremap <leader>hs :call HaskellFormat('stylish')<CR>
+  au FileType haskell nnoremap <leader>hf :call HaskellFormat('both')<CR>
+augroup END
+let g:intero_start_immediately = 0
+let g:intero_use_neomake = 0
+
+augroup interoMaps
+  au!
+
+  au FileType haskell nnoremap <silent> <leader>io :InteroOpen<CR>
+  au FileType haskell nnoremap <silent> <leader>iov :InteroOpen<CR><C-W>H
+  au FileType haskell nnoremap <silent> <leader>ih :InteroHide<CR>
+  au FileType haskell nnoremap <silent> <leader>is :InteroStart<CR>
+  au FileType haskell nnoremap <silent> <leader>ik :InteroKill<CR>
+
+  au FileType haskell nnoremap <silent> <leader>wr :w \| :InteroReload<CR>
+  au FileType haskell nnoremap <silent> <leader>il :InteroLoadCurrentModule<CR>
+  au FileType haskell nnoremap <silent> <leader>if :InteroLoadCurrentFile<CR>
+
+  au FileType haskell map <leader>t <Plug>InteroGenericType
+  au FileType haskell map <leader>T <Plug>InteroType
+  au FileType haskell nnoremap <silent> <leader>it :InteroTypeInsert<CR>
+
+  au FileType haskell nnoremap <silent> <leader>jd :InteroGoToDef<CR>
+  au FileType haskell nnoremap <silent> <leader>iu :InteroUses<CR>
+  au FileType haskell nnoremap <leader>ist :InteroSetTargets<SPACE>
+augroup END
+
+" NERDTree
 let NERDTreeQuitOnOpen=0
 let NERDTreeQuitOnOpen=0
 
+
+" GENERAL
 let g:indent_guides_guide_size = 1
 let g:indent_guides_color_change_percent = 3
 let g:indent_guides_enable_on_vim_startup = 1
@@ -47,10 +108,9 @@ nnoremap me :w<CR>:!buildsh && runsh<CR>
 nnoremap wv :vertical resize 
 nnoremap wh :resize
 
-" other
-nnoremap maif :set noautoindent
-nnoremap mait :set autoindent
-
+" customization
+nnoremap mb :let &bg=(&bg=='light'?'dark':'light')<CR> :let g:airline_theme=(&bg=='light'?'base16_solarized_light':'base16_solarized_dark')<CR>
+nnoremap mg :Goyo<CR>
 
 set showmatch               " show matching brackets.
 set mouse=v                 " middle-click paste with mouse
@@ -61,15 +121,22 @@ set autoindent
 set tabstop=3               " number of columns occupied by an expandtab
 set shiftwidth=3            " width for autoindents
 set softtabstop=3           " see multiple spaces as tabstops so <BS> does the right thing
-set background=dark
 set cursorline
 set relativenumber
 syntax on                   " syntax highlighting
 filetype plugin indent on   " allow auto-indenting depending on file type
 
-let g:solarized_termcolors=256
-colorscheme everforest
 
 let &t_8f = "\<Esc>[38;2;%lu;%lu;%lum"
 let &t_8b = "\<Esc>[48;2;%lu;%lu;%lum"
 set termguicolors
+
+colorscheme solarized8
+let nightmode=system('nightmode get')
+let &bg=(nightmode=~1?'light':'dark')
+let g:airline_theme=(&bg=='light'?'base16_solarized_light':'base16_solarized_dark')
+
+
+
+
+

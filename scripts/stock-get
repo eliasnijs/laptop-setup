@@ -1,12 +1,14 @@
 #!/bin/sh
 
-if [ "$(echo $1 | wc -c)" -gt "1" ]; then
-	price=$(curl -s -X 'GET'   "https://yfapi.net/v6/finance/quote?region=US&lang=en&symbols=${1}"   -H 'accept: application/json'   -H 'X-API-KEY: Mzcpg9OZtnA92fCTMAsm9vJsOiRjmp59x6W8LyF2' | grep -o ",[^,]*regularMarketPrice[^,]*," | sed "s/[^0-9\.]//g")
-	echo $price
-else
+CONFIGLOC="/home/eliasnijs/System/scripts/.config/stocks"
+
+if [ "$(echo $1 | wc -c)" -lt "1" ]; then
 	echo "AssertionError: invalid ticker"
+	exit 0;
 fi
 
-
-
-
+price=$(curl -s -X 'GET' "https://yfapi.net/v6/finance/quote?region=US&lang=en&symbols=${1}" -H 'accept: application/json' -H 'X-API-KEY: Mzcpg9OZtnA92fCTMAsm9vJsOiRjmp59x6W8LyF2' | grep -o ",[^,]*regularMarketPrice[^,]*," | sed "s/[^0-9\.]//g")
+echo $price
+if grep -q "$1" "$CONFIGLOC"; then
+	sed -i "s/$1:.*/$1: $price/" $CONFIGLOC
+fi

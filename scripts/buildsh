@@ -2,11 +2,12 @@
 f=5
 while [ $f -gt 0 ]
 do
-   a=$(find . -type f -name "build.sh")
-   if [ "$a" = "./build.sh" ]; then
-      echo "file found..."
+   if [ -f "./build.sh" ]; then
       ./build.sh
       f=0
+	elif [ -f "./Makefile" ]; then
+		make
+		f=0
    else
       cd ../
       f=$(echo "$f-1" | bc)

@@ -1,0 +1,17 @@
+#!/bin/sh
+
+CONFIGLOC="/home/eliasnijs/System/scripts/.config"
+STORAGELOC="/home/eliasnijs/System/scripts/.storage"
+SUNSET="18"
+
+wallpaper
+exec slstatus
+stock-update
+
+dark=0
+if [ "$(date +%H)" -gt $SUNSET"" ]; then
+   dark=1;
+fi
+echo "$dark" > "$CONFIGLOC/nightmode"
+
+echo "$(date +"%Y-%M-%d %T")     IN" >> "$STORAGELOC/logtimes"

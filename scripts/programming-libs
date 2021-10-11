@@ -1,0 +1,9 @@
+#!/bin/sh
+
+if [ $(echo $* | wc -c) -le "1"  ]; then
+	echo "no name provided!"
+elif [ "$1" = "haskell" ]; then
+	brave-browser https://hoogle.haskell.org/ > /dev/null 2>&1 &
+else
+	echo "libraryadress for $1 not configured"
+fi

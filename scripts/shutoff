@@ -1,0 +1,5 @@
+#!/bin/sh
+
+echo "$(date +"%Y-%M-%d %T")     OUT" >> "$STORAGELOC/logtimes"
+
+shutdown 0

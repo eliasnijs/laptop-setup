@@ -1,0 +1,7 @@
+#!/bin/sh
+
+CONFIGLOC="/home/eliasnijs/System/scripts/.config/stocks"
+for x  in $(cat $CONFIGLOC | sed "s/:.*//") 
+do 
+	echo "$x: $(stock-get $x)"
+done

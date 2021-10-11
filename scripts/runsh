@@ -1,13 +1,13 @@
 #!/bin/sh
-f=5
+f=3
 while [ $f -gt 0 ]
 do
-   a=$(find . -type f -name "build")
-   echo $a
-   if [ "$a" = "./build/build" ]; then
-      echo "file found..."
-      ./build/build
+   if [ -f "./run.sh" ]; then
+      ./run.sh
       f=0
+	elif [ -f "./Makefile" ]; then
+		make test
+		f=0
    else
       cd ../
       f=$(echo "$f-1" | bc)

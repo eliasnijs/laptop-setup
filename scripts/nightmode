@@ -1,0 +1,24 @@
+#!/bin/sh
+
+CONFIGLOC="/home/eliasnijs/System/scripts/.config/nightmode"
+nm=$(cat $CONFIGLOC)
+
+if [ "$1" = "get" ]; then
+	echo $nm
+elif [ "$1" = "toggle" ]; then
+	if [ "$nm" = "1" ]; then
+		echo "0" > $CONFIGLOC
+	else
+		echo "1" > $CONFIGLOC
+	fi
+	wallpaper
+elif [ "$(echo $* | wc -c)" -le "1" ]; then
+	nm=$(cat $CONFIGLOC)
+	if [ "$nm" = "1" ]; then
+		echo "0" > $CONFIGLOC
+	else
+		echo "1" > $CONFIGLOC
+	fi
+else
+	echo "invalid option!"
+fi

@@ -17,4 +17,3 @@ set trash = "+Trash"
 set postponed = "+Drafts"
 
 mailboxes =INBOX =Sent =Drafts =Junk =Trash
-

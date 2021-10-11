@@ -4,7 +4,7 @@
 # last-updated:   2021-08-05
 
 wallpaperfolder='/home/eliasnijs/System/scripts/.config/wallpaper'
-wallpaperlocation='/home/eliasnijs/System/scripts/.config/wallpaper/wallpaper'
+wallpaper_loc='/home/eliasnijs/System/scripts/.config/wallpaper/wallpaper'
 
 add=0
 file=""
@@ -46,11 +46,11 @@ fi
 if [ "$random" -eq "1" ]; then
    files=$(find $folder -name '*' -exec file {} \; | grep -o -P '^.+: \w+ image' | sed s/:.*image//)
    file=$(echo $files | cut -d " " -f $(echo $((1 + $RANDOM % $(echo $files | wc -w)))) | sed "s/ //g")   
-   cp $file $wallpaperlocation 
+   cp $file $wallpaper_loc 
 fi
 
 if [ "$setwallpaper" -eq "1" ]; then
-   cp $wallpaper $wallpaperlocation 
+	cp $wallpaper $wallpaper_loc 
 fi
 
-feh --bg-fill $wallpaperlocation
+feh --bg-fill $wallpaper_loc

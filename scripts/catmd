@@ -1,0 +1,26 @@
+#!/bin/sh
+
+if [ "$#" -lt 1 ]; then
+	echo invalid parameters
+	exit 0
+fi
+
+cp $1 catmd_temp
+
+index=1
+length=$(wc -l catmd_temp | cut -d " " -f 1)
+
+while [ $index -le $length  ]
+do
+	line=$(sed "${index}q;d" catmd_temp)
+	
+	if [ "$(echo $line | cut -c 1)" = "#" ]; then
+		echo "\033[1;44;23m$line\033[0m"	
+	else
+		echo "$line"
+	fi
+		
+	index=$(echo $index+1 | bc)
+done
+
+rm catmd_temp
