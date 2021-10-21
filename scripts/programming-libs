@@ -4,6 +4,8 @@ if [ $(echo $* | wc -c) -le "1"  ]; then
 	echo "no name provided!"
 elif [ "$1" = "haskell" ]; then
 	brave-browser https://hoogle.haskell.org/ > /dev/null 2>&1 &
+elif [ "$1" = "vulkan" ]; then
+	brave-browser https://www.khronos.org/registry/vulkan/specs/1.1/html/vkspec.html > /dev/null 2>&1 &
 else
 	echo "libraryadress for $1 not configured"
 fi

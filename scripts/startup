@@ -6,7 +6,10 @@ SUNSET="18"
 
 wallpaper
 exec slstatus
+echo "$(date +"%Y-%M-%d %T")     IN" >> "$STORAGELOC/logtimes"
 stock-update
+
+screen-secondmonitor
 
 dark=0
 if [ "$(date +%H)" -gt $SUNSET"" ]; then
@@ -14,4 +17,4 @@ if [ "$(date +%H)" -gt $SUNSET"" ]; then
 fi
 echo "$dark" > "$CONFIGLOC/nightmode"
 
-echo "$(date +"%Y-%M-%d %T")     IN" >> "$STORAGELOC/logtimes"
+

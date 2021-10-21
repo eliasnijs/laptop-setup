@@ -16,6 +16,7 @@ call plug#begin()
 	" colorschemes 
 	Plug 'sheerun/vim-polyglot'
 	Plug 'lifepillar/vim-solarized8'
+	Plug 'sainnhe/everforest'
 call plug#end()
 
    " Plug 'NLKNguyen/papercolor-theme'
@@ -26,7 +27,6 @@ call plug#end()
 	" Plug 'tomasiser/vim-code-dark'
 	" Plug 'doums/darcula'
 	" Plug 'CreaturePhil/vim-handmade-hero'
-	" Plug 'sainnhe/everforest'
 	" Plug 'gosukiwi/vim-atom-dark'
 	" Plug 'altercation/vim-colors-solarized'
 
@@ -93,7 +93,7 @@ let g:indent_guides_color_change_percent = 3
 let g:indent_guides_enable_on_vim_startup = 1
 
 " directory
-nnoremap md :NERDTree<CR>
+nnoremap mn :NERDTree<CR>
 nnoremap mf :FZF<CR>
 
 " building and saving
@@ -103,6 +103,9 @@ nnoremap ms :w<CR>
 nnoremap mm :w<CR>:!buildsh<CR>
 nnoremap mr :w<Cr>:!runsh<CR>
 nnoremap me :w<CR>:!buildsh && runsh<CR>
+
+" coding
+nnoremap md :ALEDetail<CR>
 
 " windows
 nnoremap wv :vertical resize 
@@ -118,9 +121,10 @@ set hlsearch                " highlight search results
 set number                  " add line numbers
 set nowrap
 set autoindent
-set tabstop=3               " number of columns occupied by an expandtab
-set shiftwidth=3            " width for autoindents
-set softtabstop=3           " see multiple spaces as tabstops so <BS> does the right thing
+set tabstop=2               " number of columns occupied by an expandtab
+set shiftwidth=2           " width for autoindents
+set softtabstop=2           " see multiple spaces as tabstops so <BS> does the right thing
+set expandtab
 set cursorline
 set relativenumber
 syntax on                   " syntax highlighting
