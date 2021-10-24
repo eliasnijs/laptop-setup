@@ -3,11 +3,12 @@
 
 /* appearance */
 static const unsigned int borderpx  = 1;     /* border pixel of windows */
-static const unsigned int gappx     = 0;		/* gaps between windows */
+static const unsigned int gappx     = 7;		/* gaps between windows */
 static const unsigned int snap      = 32;    /* snap pixel */
 static const int showbar            = 1;     /* 0 means no bar */
 static const int topbar             = 1;     /* 0 means bottom bar */
-static const char *fonts[]          = { "monospace:size=10" };
+static const char *fonts[]          = {"JetBrains Mono:size=10:antialias=true:autohint=true"};
+// static const char *fonts[]          = { "monospace:size=10" };
 static const char dmenufont[]       = "monospace:size=10";
 static const char col_gray1[]       = "#000000";
 static const char col_gray2[]       = "#d0d0d0";

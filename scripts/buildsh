@@ -2,12 +2,12 @@
 f=5
 while [ $f -gt 0 ]
 do
-   if [ -f "./build.sh" ]; then
-      ./build.sh
-      f=0
-	elif [ -f "./Makefile" ]; then
-		make
-		f=0
+   if [ -f "build.sh" ]; then
+      ./build.sh $*
+      f=-1
+	 elif [ -f "Makefile" ]; then
+	    make $*
+	    f=-1
    else
       cd ../
       f=$(echo "$f-1" | bc)
