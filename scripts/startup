@@ -5,8 +5,11 @@ STORAGELOC="/home/eliasnijs/System/scripts/.storage"
 SUNSET="18"
 
 wallpaper
+
 exec slstatus
+
 echo "$(date +"%Y-%M-%d %T")     IN" >> "$STORAGELOC/logtimes"
+
 stock-update
 
 screen-secondmonitor
