@@ -3,10 +3,10 @@ f=3
 while [ $f -gt 0 ]
 do
    if [ -f "./run.sh" ]; then
-      ./run.sh
+      ./run.sh $*
       f=0
 	elif [ -f "./Makefile" ]; then
-		make test
+		make test $*
 		f=0
    else
       cd ../

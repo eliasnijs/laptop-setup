@@ -1,5 +1,6 @@
 #!/bin/sh
 
-echo "$(date +"%Y-%M-%d %T")     OUT" >> "$STORAGELOC/logtimes"
+STORAGELOC="/home/eliasnijs/System/scripts/.storage"
+echo "$(date +"%F %T")     OUT" >> "$STORAGELOC/logtimes"
 
 shutdown 0

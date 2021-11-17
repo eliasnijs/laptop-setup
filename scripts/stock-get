@@ -1,6 +1,6 @@
 #!/bin/sh
 
-CONFIGLOC="/home/eliasnijs/System/scripts/.config/stocks"
+CONFIGLOC="/home/eliasnijs/System/scripts/.storage/stocks"
 
 if [ "$(echo $1 | wc -c)" -lt "1" ]; then
 	echo "AssertionError: invalid ticker"

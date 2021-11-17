@@ -1,8 +1,5 @@
 #!/bin/bash
 
-# author:         eliasnijs
-# last-updated:   2021-08-05
-
 wallpaperfolder='/home/eliasnijs/System/scripts/.config/wallpaper'
 wallpaper_loc='/home/eliasnijs/System/scripts/.config/wallpaper/wallpaper'
 

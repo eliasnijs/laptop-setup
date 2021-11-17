@@ -1,34 +1,35 @@
 set nocompatible
 
+let g:ale_disable_lsp = 1
 call plug#begin()
 	" functionality
-   Plug 'preservim/nerdtree'
-   Plug 'vim-airline/vim-airline'
-   Plug 'tomtom/tcomment_vim'
-   Plug 'airblade/vim-gitgutter'
-   Plug 'junegunn/fzf'
+  Plug 'preservim/nerdtree'
+  Plug 'vim-airline/vim-airline'
+  Plug 'tomtom/tcomment_vim'
+  Plug 'airblade/vim-gitgutter'
+  Plug 'junegunn/fzf'
 	Plug 'neoclide/coc.nvim', {'branch': 'release'}
 	Plug 'junegunn/goyo.vim'
+  Plug 'tpope/vim-obsession'
+	Plug 'dense-analysis/ale'
 	" Haskell
 	Plug 'alx741/vim-hindent'
-	Plug 'dense-analysis/ale'
-	Plug 'parsonsmatt/intero-neovim'
 	" colorschemes 
+	Plug 'tomasiser/vim-code-dark'
 	Plug 'sheerun/vim-polyglot'
 	Plug 'lifepillar/vim-solarized8'
 	Plug 'sainnhe/everforest'
+  Plug 'NLKNguyen/papercolor-theme'
+  Plug 'stefanvanburen/rams.vim'
+  Plug 'morhetz/gruvbox'
+	Plug 'sainnhe/sonokai'
+	Plug 'joshdick/onedark.vim'
+	Plug 'tomasiser/vim-code-dark'
+	Plug 'doums/darcula'
+	Plug 'CreaturePhil/vim-handmade-hero'
+	Plug 'gosukiwi/vim-atom-dark'
 call plug#end()
 
-   " Plug 'NLKNguyen/papercolor-theme'
-   " Plug 'stefanvanburen/rams.vim'
-   " Plug 'morhetz/gruvbox'
-	" Plug 'sainnhe/sonokai'
-	" Plug 'joshdick/onedark.vim'
-	" Plug 'tomasiser/vim-code-dark'
-	" Plug 'doums/darcula'
-	" Plug 'CreaturePhil/vim-handmade-hero'
-	" Plug 'gosukiwi/vim-atom-dark'
-	" Plug 'altercation/vim-colors-solarized'
 
 " Haskell
 let g:haskell_indent_if = 2
@@ -57,30 +58,6 @@ augroup haskellStylish
   au FileType haskell nnoremap <leader>hs :call HaskellFormat('stylish')<CR>
   au FileType haskell nnoremap <leader>hf :call HaskellFormat('both')<CR>
 augroup END
-let g:intero_start_immediately = 0
-let g:intero_use_neomake = 0
-
-augroup interoMaps
-  au!
-
-  au FileType haskell nnoremap <silent> <leader>io :InteroOpen<CR>
-  au FileType haskell nnoremap <silent> <leader>iov :InteroOpen<CR><C-W>H
-  au FileType haskell nnoremap <silent> <leader>ih :InteroHide<CR>
-  au FileType haskell nnoremap <silent> <leader>is :InteroStart<CR>
-  au FileType haskell nnoremap <silent> <leader>ik :InteroKill<CR>
-
-  au FileType haskell nnoremap <silent> <leader>wr :w \| :InteroReload<CR>
-  au FileType haskell nnoremap <silent> <leader>il :InteroLoadCurrentModule<CR>
-  au FileType haskell nnoremap <silent> <leader>if :InteroLoadCurrentFile<CR>
-
-  au FileType haskell map <leader>t <Plug>InteroGenericType
-  au FileType haskell map <leader>T <Plug>InteroType
-  au FileType haskell nnoremap <silent> <leader>it :InteroTypeInsert<CR>
-
-  au FileType haskell nnoremap <silent> <leader>jd :InteroGoToDef<CR>
-  au FileType haskell nnoremap <silent> <leader>iu :InteroUses<CR>
-  au FileType haskell nnoremap <leader>ist :InteroSetTargets<SPACE>
-augroup END
 
 " NERDTree
 let NERDTreeQuitOnOpen=0
@@ -92,6 +69,13 @@ let g:indent_guides_guide_size = 1
 let g:indent_guides_color_change_percent = 3
 let g:indent_guides_enable_on_vim_startup = 1
 
+" folds
+augroup remember_folds
+  autocmd!
+  autocmd BufWinLeave * mkview
+  autocmd BufWinEnter * silent! loadview
+augroup END
+
 " directory
 nnoremap mn :NERDTree<CR>
 nnoremap mf :FZF<CR>
@@ -100,12 +84,14 @@ nnoremap mf :FZF<CR>
 nnoremap mq :q<CR>
 nnoremap mw :wq<CR>
 nnoremap ms :w<CR>
+nnoremap mt :!
 nnoremap mm :w<CR>:!buildsh<CR>
 nnoremap mr :w<Cr>:!runsh<CR>
 nnoremap me :w<CR>:!buildsh && runsh<CR>
 
 " coding
-nnoremap md :ALEDetail<CR>
+nnoremap md :aledetail<cr>
+nnoremap mo :CocOutline<cr>
 
 " windows
 nnoremap wv :vertical resize 
@@ -135,11 +121,11 @@ let &t_8f = "\<Esc>[38;2;%lu;%lu;%lum"
 let &t_8b = "\<Esc>[48;2;%lu;%lu;%lum"
 set termguicolors
 
-colorscheme solarized8
 let nightmode=system('nightmode get')
-let &bg=(nightmode=~1?'light':'dark')
-let g:airline_theme=(&bg=='light'?'base16_solarized_light':'base16_solarized_dark')
+let &bg=(nightmode=~0?'light':'dark')
 
+colorscheme solarized8
+let g:airline_theme=(&bg=='light'?'base16_solarized_light':'base16_solarized_dark')
 
 
 

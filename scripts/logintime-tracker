@@ -1,9 +1,0 @@
-#!/bin/sh
-
-mode=$1
-if [ "$mode" -ne "0" ] && [ "$mode" -ne "1" ]; then
-   echo "AssertionError: invalid mode"
-   exit 1
-fi
-
-echo $mode $(date "+%F %T") >> ~/Documents/linux/scripts/.storage/logtimes

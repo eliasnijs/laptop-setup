@@ -7,13 +7,14 @@ static const unsigned int gappx     = 0;		/* gaps between windows */
 static const unsigned int snap      = 32;    /* snap pixel */
 static const int showbar            = 1;     /* 0 means no bar */
 static const int topbar             = 1;     /* 0 means bottom bar */
-static const char *fonts[]          = { "monospace:size=10" };
+static const char *fonts[]          = {"JetBrains Mono:size=10:antialias=true:autohint=true"};
+// static const char *fonts[]          = { "monospace:size=10" };
 static const char dmenufont[]       = "monospace:size=10";
 static const char col_gray1[]       = "#000000";
 static const char col_gray2[]       = "#d0d0d0";
 static const char col_gray3[]       = "#000000";
 static const char col_gray4[]       = "#eeeeee";
-static const char col_cyan[]        = "#ff0000";
+static const char col_cyan[]        = "#005577";
 static const char *colors[][3]      = {
 	/*               fg         bg         border   */
 	[SchemeNorm] = { col_gray2, col_gray1, col_gray1  },
@@ -36,7 +37,7 @@ static const Rule rules[] = {
 /* layout(s) */
 static const float mfact     = 0.6;		/* factor of master area size [0.05..0.95] */
 static const int nmaster     = 1;		/* number of clients in master area */
-static const int resizehints = 1;		/* 1 means respect size hints in tiled resizals */
+static const int resizehints = 0;		/* 1 means respect size hints in tiled resizals */
 
 static const Layout layouts[] = {
 	/* symbol     arrange function */
@@ -64,13 +65,15 @@ static const char *dmenucmd[] = { "dmenu_run", "-m", dmenumon, "-fn", dmenufont,
 static const char *termcmd[]  = { "st", NULL };
 static const char *audiovolup[] = {"audio-increment","plus","10", NULL};
 static const char *audiovoldown[] = {"audio-increment","min","10", NULL};
+static const char *screenshot[] = {"gnome-screenshot" ,"--interactive", NULL};
 
 static Key keys[] = {
 	/* modifier                     key        function        argument */
-   { 0,              XF86XK_AudioRaiseVolume, spawn,          {.v = audiovolup } },
-   { 0,              XF86XK_AudioLowerVolume, spawn,          {.v = audiovoldown } },
-	{ MODKEY,                       XK_p,      spawn,          {.v = dmenucmd } },
-	{ MODKEY|ShiftMask,             XK_Return, spawn,          {.v = termcmd } },
+	{ 0,              XF86XK_AudioMute,        spawn,          {.v = screenshot   } },
+  { 0,              XF86XK_AudioRaiseVolume, spawn,          {.v = audiovolup   } },
+  { 0,              XF86XK_AudioLowerVolume, spawn,          {.v = audiovoldown } },
+	{ MODKEY,                       XK_p,      spawn,          {.v = dmenucmd     } },
+	{ MODKEY|ShiftMask,             XK_Return, spawn,          {.v = termcmd      } },
 	{ MODKEY,                       XK_b,      togglebar,      {0} },
 	{ MODKEY,                       XK_j,      focusstack,     {.i = +1 } },
 	{ MODKEY,                       XK_k,      focusstack,     {.i = -1 } },

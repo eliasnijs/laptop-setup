@@ -66,9 +66,6 @@ static const char unknown_str[] = "n/a";
 
 static const struct arg args[] = {
 	/* function format          argument */
-   // { run_command, "%s ",            "audio-port"         },
-   // { run_command, "%s | " ,         "audio-visualise -p" },
-	{ run_command, "%s | ",				"echo $(cat /home/eliasnijs/System/scripts/.config/stocks)"},
    { wifi_essid, "%s ",             "wlo1"               },
    { wifi_perc,"%s% | ",            "wlo1"               },
    { battery_state, "BAT%s ",       "BAT1"               },
