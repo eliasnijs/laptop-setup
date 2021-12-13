@@ -4,15 +4,9 @@ CONFIGLOC="/home/eliasnijs/System/scripts/.config"
 STORAGELOC="/home/eliasnijs/System/scripts/.storage"
 SUNSET="18"
 
-wallpaper
-echo "$(date +"%F %T")     IN" >> "$STORAGELOC/logtimes"
-stock-update
-screen-secondmonitor
-
-dark=0
-if [ "$(date +%H)" -gt $SUNSET"" ]; then
-   dark=1;
-fi
-echo "$dark" > "$CONFIGLOC/nightmode"
-
 exec slstatus & 
+
+echo "$(date +"%F %T")     IN" >> "$STORAGELOC/logtimes"
+screen-secondmonitor
+wallpaper
+stock-update

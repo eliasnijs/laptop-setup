@@ -12,6 +12,7 @@ call plug#begin()
 	Plug 'junegunn/goyo.vim'
   Plug 'tpope/vim-obsession'
 	Plug 'dense-analysis/ale'
+  Plug 'norcalli/nvim-colorizer.lua'
 	" Haskell
 	Plug 'alx741/vim-hindent'
 	" colorschemes 
@@ -28,53 +29,33 @@ call plug#begin()
 	Plug 'doums/darcula'
 	Plug 'CreaturePhil/vim-handmade-hero'
 	Plug 'gosukiwi/vim-atom-dark'
+  Plug 'koffeeboi/jjstyle'
+  Plug 'fcpg/vim-fahrenheit'
+  Plug 'fcpg/vim-orbital'
+  Plug 'fcpg/vim-farout'
+  Plug 'rakr/vim-two-firewatch'
+  Plug 'whatyouhide/vim-gotham'
 call plug#end()
-
-
-" Haskell
-let g:haskell_indent_if = 2
-let g:haskell_indent_before_where = 2
-let g:haskell_indent_case_alternative = 1
-let g:haskell_indent_let_no_in = 0
-let g:ale_linters = {}
-let g:ale_linters.haskell = ['stack-ghc-mod', 'hlint']
-let g:haskell_indent_if = 2
-let g:haskell_indent_before_where = 2
-let g:haskell_indent_case_alternative = 1
-let g:haskell_indent_let_no_in = 0
-let g:hindent_on_save = 0
-function! HaskellFormat(which) abort
-  if a:which ==# 'hindent' || a:which ==# 'both'
-    :Hindent
-  endif
-  if a:which ==# 'stylish' || a:which ==# 'both'
-    silent! exe 'undojoin'
-    silent! exe 'keepjumps %!stylish-haskell'
-  endif
-endfunction
-augroup haskellStylish
-  au!
-  au FileType haskell nnoremap <leader>hi :Hindent<CR>
-  au FileType haskell nnoremap <leader>hs :call HaskellFormat('stylish')<CR>
-  au FileType haskell nnoremap <leader>hf :call HaskellFormat('both')<CR>
-augroup END
 
 " NERDTree
 let NERDTreeQuitOnOpen=0
 let NERDTreeQuitOnOpen=0
 
+" Colorizer
+set termguicolors
+lua require'colorizer'.setup()
 
 " GENERAL
 let g:indent_guides_guide_size = 1
 let g:indent_guides_color_change_percent = 3
 let g:indent_guides_enable_on_vim_startup = 1
 
-" folds
-augroup remember_folds
-  autocmd!
-  autocmd BufWinLeave * mkview
-  autocmd BufWinEnter * silent! loadview
-augroup END
+" NOTE (Elias): Code to remember folds, still has bugs
+" augroup remember_folds
+"   autocmd!
+"   au BufWinLeave ?* mkview 1
+"   au BufWinEnter ?* silent! loadview 1
+" augroup END
 
 " directory
 nnoremap mn :NERDTree<CR>
@@ -87,10 +68,9 @@ nnoremap ms :w<CR>
 nnoremap mt :!
 nnoremap mm :w<CR>:!buildsh<CR>
 nnoremap mr :w<Cr>:!runsh<CR>
-nnoremap me :w<CR>:!buildsh && runsh<CR>
-
+nnoremap me :w<CR>:!buildsh && runsh<CR> 
 " coding
-nnoremap md :aledetail<cr>
+nnoremap md :ALEDetail<cr>
 nnoremap mo :CocOutline<cr>
 
 " windows
@@ -119,14 +99,52 @@ filetype plugin indent on   " allow auto-indenting depending on file type
 
 let &t_8f = "\<Esc>[38;2;%lu;%lu;%lum"
 let &t_8b = "\<Esc>[48;2;%lu;%lu;%lum"
-set termguicolors
 
-let nightmode=system('nightmode get')
-let &bg=(nightmode=~0?'light':'dark')
+let darkmode=system('darkmode get')
+let &bg=(darkmode=~0?'light':'dark')
 
 colorscheme solarized8
 let g:airline_theme=(&bg=='light'?'base16_solarized_light':'base16_solarized_dark')
 
+" Haskell
+let g:haskell_indent_if = 2
+let g:haskell_indent_before_where = 2
+let g:haskell_indent_case_alternative = 1
+let g:haskell_indent_let_no_in = 0
+let g:ale_linters = {}
+let g:ale_linters.haskell = ['stack-ghc-mod', 'hlint']
+let g:haskell_indent_if = 2
+let g:haskell_indent_before_where = 2
+let g:haskell_indent_case_alternative = 1
+let g:haskell_indent_let_no_in = 0
+let g:hindent_on_save = 0
+function! HaskellFormat(which) abort
+  if a:which ==# 'hindent' || a:which ==# 'both'
+    :Hindent
+  endif
+  if a:which ==# 'stylish' || a:which ==# 'both'
+    silent! exe 'undojoin'
+    silent! exe 'keepjumps %!stylish-haskell'
+  endif
+endfunction
 
+augroup haskellStylish
+  au!
+  au FileType haskell nnoremap <leader>hi :Hindent<CR>
+  au FileType haskell nnoremap <leader>hs :call HaskellFormat('stylish')<CR>
+  au FileType haskell nnoremap <leader>hf :call HaskellFormat('both')<CR>
+augroup END
 
+" Extra syntax rules
+function! UpdateTodoKeywords(...)
+    let newKeywords = join(a:000, " ")
+    let synTodo = map(filter(split(execute("syntax list"), '\n') , { i,v -> match(v, '^\w*Todo\>') == 0}), {i,v -> substitute(v, ' .*$', '', '')})
+    for synGrp in synTodo
+        execute "syntax keyword " . synGrp . " contained " . newKeywords
+    endfor
+endfunction
 
+augroup now
+    autocmd!
+    autocmd Syntax * call UpdateTodoKeywords("NOTE", "NOTES", "OPTTODO")
+augroup END
