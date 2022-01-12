@@ -2,8 +2,8 @@
 f=3
 while [ $f -gt 0 ]
 do
-   if [ -f "./run.sh" ]; then
-      ./run.sh $*
+   if [ -f "./run" ]; then
+      ./run $*
       f=0
 	elif [ -f "./Makefile" ]; then
 		make test $*

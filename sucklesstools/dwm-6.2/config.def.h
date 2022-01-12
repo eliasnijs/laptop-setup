@@ -65,13 +65,14 @@ static const char *dmenucmd[] = { "dmenu_run", "-m", dmenumon, "-fn", dmenufont,
 static const char *termcmd[]  = { "st", NULL };
 static const char *audiovolup[] = {"audio-increment","plus","10", NULL};
 static const char *audiovoldown[] = {"audio-increment","min","10", NULL};
-static const char *screenshot[] = {"gnome-screenshot" ,"--interactive", NULL};
+static const char *screenshot[] = {"screenshot" ,"-c", NULL};
 
 static Key keys[] = {
 	/* modifier                     key        function        argument */
 	{ 0,              XF86XK_AudioMute,        spawn,          {.v = screenshot   } },
   { 0,              XF86XK_AudioRaiseVolume, spawn,          {.v = audiovolup   } },
   { 0,              XF86XK_AudioLowerVolume, spawn,          {.v = audiovoldown } },
+	{ MODKEY|ShiftMask,             XK_p,      spawn,          {.v = screenshot   } },
 	{ MODKEY,                       XK_p,      spawn,          {.v = dmenucmd     } },
 	{ MODKEY|ShiftMask,             XK_Return, spawn,          {.v = termcmd      } },
 	{ MODKEY,                       XK_b,      togglebar,      {0} },

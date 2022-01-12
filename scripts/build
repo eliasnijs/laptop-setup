@@ -2,8 +2,8 @@
 f=5
 while [ $f -gt 0 ]
 do
-   if [ -f "build.sh" ]; then
-      ./build.sh $*
+   if [ -f "build" ]; then
+      ./build $*
       f=-1
 	 elif [ -f "Makefile" ]; then
 	    make $*
