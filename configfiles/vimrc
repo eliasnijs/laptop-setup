@@ -15,6 +15,10 @@ call plug#begin()
   Plug 'norcalli/nvim-colorizer.lua'
 	" Haskell
 	Plug 'alx741/vim-hindent'
+  Plug 'ndmitchell/ghcid', { 'rtp': 'plugins/nvim' }
+  Plug 'rbgrouleff/bclose.vim'
+  Plug 'hasufell/ghcup.vim'
+  Plug 'parsonsmatt/intero-neovim'
 	" colorschemes 
 	Plug 'tomasiser/vim-code-dark'
 	Plug 'sheerun/vim-polyglot'
@@ -41,6 +45,12 @@ call plug#end()
 let NERDTreeQuitOnOpen=0
 let NERDTreeQuitOnOpen=0
 
+" Intero
+let g:intero_backend = {
+        \ 'command': 'ghci',
+        \ 'cwd': expand('%:p:h'),
+        \}
+
 " Colorizer
 set termguicolors
 lua require'colorizer'.setup()
@@ -66,16 +76,16 @@ nnoremap mq :q<CR>
 nnoremap mw :wq<CR>
 nnoremap ms :w<CR>
 nnoremap mt :!
-nnoremap mm :w<CR>:!buildsh<CR>
-nnoremap mr :w<Cr>:!runsh<CR>
-nnoremap me :w<CR>:!buildsh && runsh<CR> 
+nnoremap mm :w<CR>:!build<CR>
+nnoremap mr :w<Cr>:!run<CR>
+nnoremap me :w<CR>:!build && run<cr>
 " coding
 nnoremap md :ALEDetail<cr>
 nnoremap mo :CocOutline<cr>
 
 " windows
-nnoremap wv :vertical resize 
-nnoremap wh :resize
+nnoremap mv :vertical resize 
+nnoremap mh :resize
 
 " customization
 nnoremap mb :let &bg=(&bg=='light'?'dark':'light')<CR> :let g:airline_theme=(&bg=='light'?'base16_solarized_light':'base16_solarized_dark')<CR>
@@ -91,6 +101,7 @@ set tabstop=2               " number of columns occupied by an expandtab
 set shiftwidth=2           " width for autoindents
 set softtabstop=2           " see multiple spaces as tabstops so <BS> does the right thing
 set expandtab
+set smarttab
 set cursorline
 set relativenumber
 syntax on                   " syntax highlighting
@@ -100,11 +111,16 @@ filetype plugin indent on   " allow auto-indenting depending on file type
 let &t_8f = "\<Esc>[38;2;%lu;%lu;%lum"
 let &t_8b = "\<Esc>[48;2;%lu;%lu;%lum"
 
-let darkmode=system('darkmode get')
-let &bg=(darkmode=~0?'light':'dark')
+" let darkmode=system('darkmode get')
+" let &bg=(darkmode=~0?'light':'dark')
+"
+" colorscheme solarized8
+" let g:airline_theme=(&bg=='light'?'base16_solarized_light':'base16_solarized_dark')
 
-colorscheme solarized8
-let g:airline_theme=(&bg=='light'?'base16_solarized_light':'base16_solarized_dark')
+" colorscheme farout
+
+colorscheme handmade-hero
+set nocursorline
 
 " Haskell
 let g:haskell_indent_if = 2
