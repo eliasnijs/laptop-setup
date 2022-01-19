@@ -2,11 +2,11 @@
 
 CONFIGLOC="/home/eliasnijs/System/scripts/.config"
 STORAGELOC="/home/eliasnijs/System/scripts/.storage"
-SUNSET="18"
 
 exec slstatus & 
 
 echo "$(date +"%F %T")     IN" >> "$STORAGELOC/logtimes"
 screen-secondmonitor
 wallpaper
-stock-update
+stock-update 
+setxkbmap -option caps:swapescape
