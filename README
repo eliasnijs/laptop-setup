@@ -4,7 +4,3 @@ MY SYSTEM
 author:        elias nijs
 description:   repository containing all the files related to my laptop setup
 
-todo:
-1. Make macro's for vim (e.g. mn[tab] -> int main(int argc, char* argv[]){})
-    (optional: make language specific ones)
-
