@@ -61,18 +61,19 @@ static const Layout layouts[] = {
 
 /* commands */
 static char dmenumon[2] = "0"; /* component of dmenucmd, manipulated in spawn() */
-static const char *dmenucmd[] = { "dmenu_run", "-m", dmenumon, "-fn", dmenufont, "-nb", col_gray1, "-nf", col_gray2, "-sb", col_gray2, "-sf", col_gray1, NULL };
-static const char *termcmd[]  = { "st", NULL };
-static const char *audiovolup[] = {"audio-increment","plus","10", NULL};
-static const char *audiovoldown[] = {"audio-increment","min","10", NULL};
-static const char *screenshot[] = {"screenshot" ,"-c", NULL};
+static const char *dmenucmd[]     = { "dmenu_run", "-m", dmenumon, "-fn", dmenufont, "-nb", col_gray1, "-nf", col_gray2, "-sb", col_gray2, "-sf", col_gray1, NULL };
+static const char *termcmd[]      = { "st", NULL };
+static const char *audiovolup[]   = {"audio-increment","plus","10", NULL};
+static const char *audiovoldown[] = {"audio-increment","min","10",  NULL};
+static const char *screenshot[]   = {"screenshot" ,"-c", NULL};
+static const char *stockupdate[]  = {"stock-update", NULL};
 
 static Key keys[] = {
 	/* modifier                     key        function        argument */
-	{ 0,              XF86XK_AudioMute,        spawn,          {.v = screenshot   } },
   { 0,              XF86XK_AudioRaiseVolume, spawn,          {.v = audiovolup   } },
   { 0,              XF86XK_AudioLowerVolume, spawn,          {.v = audiovoldown } },
 	{ MODKEY|ShiftMask,             XK_p,      spawn,          {.v = screenshot   } },
+	{ MODKEY|ShiftMask,             XK_s,      spawn,          {.v = stockupdate  } },
 	{ MODKEY,                       XK_p,      spawn,          {.v = dmenucmd     } },
 	{ MODKEY|ShiftMask,             XK_Return, spawn,          {.v = termcmd      } },
 	{ MODKEY,                       XK_b,      togglebar,      {0} },

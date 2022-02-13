@@ -15,7 +15,7 @@ while getopts ":a:ls::" opt; do
 	      ;;
       l) list=true
 	      ;;
-	   s) search=true
+	    s) search=true
 	      query="${OPTARG}"
 	      ;;
 	   \?) echo "AssertionError: wrong syntax" 1>&2

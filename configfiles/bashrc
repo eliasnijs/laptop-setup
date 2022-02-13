@@ -4,6 +4,7 @@ alias vim='nvim'
 alias b='build'
 alias r='run'
 alias br='b && r'
+alias open='xdg-open'
 
 export _JAVA_AWT_WM_NONREPARENTING=1
 
