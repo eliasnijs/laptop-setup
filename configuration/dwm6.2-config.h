@@ -7,7 +7,7 @@ static const unsigned int gappx     = 0;		/* gaps between windows */
 static const unsigned int snap      = 32;    /* snap pixel */
 static const int showbar            = 1;     /* 0 means no bar */
 static const int topbar             = 1;     /* 0 means bottom bar */
-static const char *fonts[]          = {"JetBrains Mono:size=10:antialias=true:autohint=true"};
+static const char *fonts[]          = {"Jetbrains Mono:size=10:antialias=true:autohint=true"};
 // static const char *fonts[]          = { "monospace:size=10" };
 static const char dmenufont[]       = "monospace:size=10";
 static const char col_gray1[]       = "#000000";
@@ -31,7 +31,8 @@ static const Rule rules[] = {
 	 *	*/
 	/* class      instance    title       tags mask     isfloating   monitor */
 	{ "dev0",      NULL,       NULL,       0,            1,           -1 },
-	{ "mpv",      NULL,       NULL,       0,            1,           -1 },
+	{ "feh",       NULL,       NULL,       0,            1,           -1 },
+	{ "mpv",       NULL,       NULL,       0,            1,           -1 },
 };
 
 /* layout(s) */
@@ -67,15 +68,21 @@ static const char *audiovolup[]   = {"audio-increment","plus","10", NULL};
 static const char *audiovoldown[] = {"audio-increment","min","10",  NULL};
 static const char *screenshot[]   = {"screenshot" ,"-c", NULL};
 static const char *stockupdate[]  = {"stock-update", NULL};
+static const char *browser[]      = {"brave-browser", NULL};
+static const char *discord[]      = {"brave-browser https://discord.com/channels", NULL};
+static const char *filemanager[]  = {"xfe", NULL};
 
 static Key keys[] = {
 	/* modifier                     key        function        argument */
   { 0,              XF86XK_AudioRaiseVolume, spawn,          {.v = audiovolup   } },
   { 0,              XF86XK_AudioLowerVolume, spawn,          {.v = audiovoldown } },
 	{ MODKEY|ShiftMask,             XK_p,      spawn,          {.v = screenshot   } },
+	{ MODKEY|ShiftMask,             XK_b,      spawn,          {.v = browser      } },
+	{ MODKEY|ShiftMask,             XK_d,      spawn,          {.v = discord      } },
 	{ MODKEY|ShiftMask,             XK_s,      spawn,          {.v = stockupdate  } },
 	{ MODKEY,                       XK_p,      spawn,          {.v = dmenucmd     } },
 	{ MODKEY|ShiftMask,             XK_Return, spawn,          {.v = termcmd      } },
+	{ MODKEY|ShiftMask,             XK_f,      spawn,          {.v = filemanager  } },
 	{ MODKEY,                       XK_b,      togglebar,      {0} },
 	{ MODKEY,                       XK_j,      focusstack,     {.i = +1 } },
 	{ MODKEY,                       XK_k,      focusstack,     {.i = -1 } },

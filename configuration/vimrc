@@ -14,12 +14,15 @@ call plug#begin()
   Plug 'tpope/vim-obsession'
 	Plug 'dense-analysis/ale'
   Plug 'norcalli/nvim-colorizer.lua'
-	Plug 'alx741/vim-hindent'
-  Plug 'ndmitchell/ghcid', { 'rtp': 'plugins/nvim' }
-  Plug 'rbgrouleff/bclose.vim'
-  Plug 'hasufell/ghcup.vim'
-  Plug 'parsonsmatt/intero-neovim'
-	" colorschemes 
+    
+  "   " Haskell
+  " Plug 'alx741/vim-hindent'
+  " Plug 'ndmitchell/ghcid', { 'rtp': 'plugins/nvim' }
+  " Plug 'rbgrouleff/bclose.vim'
+  " Plug 'hasufell/ghcup.vim'
+  " Plug 'parsonsmatt/intero-neovim'
+	
+  " colorschemes 
 	Plug 'tomasiser/vim-code-dark'
 	Plug 'sheerun/vim-polyglot'
 	Plug 'lifepillar/vim-solarized8'
@@ -162,6 +165,6 @@ augroup END
 " colorscheme solarized8
 " let g:airline_theme=(&bg=='light'?'base16_solarized_light':'base16_solarized_dark')
 
-colorscheme industry 
+colorscheme pablo
 set nocursorline
 
