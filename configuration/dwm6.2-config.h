@@ -42,8 +42,8 @@ static const int resizehints = 0;		/* 1 means respect size hints in tiled resiza
 
 static const Layout layouts[] = {
 	/* symbol     arrange function */
-	{ "[]=",      tile },    /* first entry is default */
-	{ "><>",      NULL },    /* no layout function means floating behavior */
+	{ "M|=",      tile },    /* first entry is default */
+	{ "   ",      NULL },    /* no layout function means floating behavior */
 	{ "[M]",      monocle },
 	{ "=M=",      centeredmaster },
 	{ "<M>",      centeredfloatingmaster },
@@ -64,25 +64,13 @@ static const Layout layouts[] = {
 static char dmenumon[2] = "0"; /* component of dmenucmd, manipulated in spawn() */
 static const char *dmenucmd[]     = { "dmenu_run", "-m", dmenumon, "-fn", dmenufont, "-nb", col_gray1, "-nf", col_gray2, "-sb", col_gray2, "-sf", col_gray1, NULL };
 static const char *termcmd[]      = { "st", NULL };
-static const char *audiovolup[]   = {"audio-increment","plus","10", NULL};
-static const char *audiovoldown[] = {"audio-increment","min","10",  NULL};
-static const char *screenshot[]   = {"screenshot" ,"-c", NULL};
-static const char *stockupdate[]  = {"stock-update", NULL};
-static const char *browser[]      = {"brave-browser", NULL};
-static const char *discord[]      = {"brave-browser https://discord.com/channels", NULL};
-static const char *filemanager[]  = {"xfe", NULL};
+static const char *screenshot[]   = { "screenshot" ,"-c", NULL};
 
 static Key keys[] = {
 	/* modifier                     key        function        argument */
-  { 0,              XF86XK_AudioRaiseVolume, spawn,          {.v = audiovolup   } },
-  { 0,              XF86XK_AudioLowerVolume, spawn,          {.v = audiovoldown } },
-	{ MODKEY|ShiftMask,             XK_p,      spawn,          {.v = screenshot   } },
-	{ MODKEY|ShiftMask,             XK_b,      spawn,          {.v = browser      } },
-	{ MODKEY|ShiftMask,             XK_d,      spawn,          {.v = discord      } },
-	{ MODKEY|ShiftMask,             XK_s,      spawn,          {.v = stockupdate  } },
+	{ MODKEY|ShiftMask,             XK_s,      spawn,          {.v = screenshot   } },
 	{ MODKEY,                       XK_p,      spawn,          {.v = dmenucmd     } },
 	{ MODKEY|ShiftMask,             XK_Return, spawn,          {.v = termcmd      } },
-	{ MODKEY|ShiftMask,             XK_f,      spawn,          {.v = filemanager  } },
 	{ MODKEY,                       XK_b,      togglebar,      {0} },
 	{ MODKEY,                       XK_j,      focusstack,     {.i = +1 } },
 	{ MODKEY,                       XK_k,      focusstack,     {.i = -1 } },
@@ -97,7 +85,6 @@ static Key keys[] = {
 	{ MODKEY,                       XK_f,      setlayout,      {.v = &layouts[1]} },
 	{ MODKEY,                       XK_m,      setlayout,      {.v = &layouts[2]} },
 	{ MODKEY,                       XK_u,      setlayout,      {.v = &layouts[3]} },
-	{ MODKEY,                       XK_o,      setlayout,      {.v = &layouts[4]} },
 	{ MODKEY,                       XK_space,  setlayout,      {0} },
 	{ MODKEY|ShiftMask,             XK_space,  togglefloating, {0} },
 	{ MODKEY,                       XK_s,      togglesticky,   {0} },

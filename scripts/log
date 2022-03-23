@@ -1,6 +1,6 @@
 #!/bin/sh
 
-FILE="/home/eliasnijs/System/scripts/.storage/logbook"
+FILE=$(echo $(dirname $(readlink -f $0))/.storage/logbook)
 CURRENTDATE=`date +"%Y-%m-%d %T"`
 
 if [ ! -f "$FILE" ]; then

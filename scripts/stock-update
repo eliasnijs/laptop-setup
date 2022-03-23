@@ -1,7 +1,8 @@
 #!/bin/sh
 
-CONFIGLOC="/home/eliasnijs/System/scripts/.storage/stocks"
-for x  in $(cat $CONFIGLOC | sed "s/:.*//") 
+
+path=$(echo $(dirname $(readlink -f $0))/.storage/stocks)
+for x  in $(cat $path | sed "s/:.*//") 
 do 
 	echo "$x: $(stock-get $x)"
 done

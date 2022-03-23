@@ -1,7 +1,7 @@
 #!/bin/bash
 
-wallpaperfolder='/home/eliasnijs/System/scripts/.config/wallpaper'
-wallpaper_loc='/home/eliasnijs/System/scripts/.config/wallpaper/wallpaper'
+wallpaperfolder=$(echo $(dirname $(readlink -f $0))/.config/wallpaper)
+wallpaper_loc=$(echo $(dirname $(readlink -f $0))/.config/wallpaper/wallpaper)
 
 add=0
 file=""

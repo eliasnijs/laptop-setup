@@ -1,11 +1,11 @@
 #!/bin/sh
 
-CONFIGLOC="/home/eliasnijs/System/scripts/.config"
-STORAGELOC="/home/eliasnijs/System/scripts/.storage"
+path_config=$(echo $(dirname $(readlink -f $0))/.storage)
+path_storage=$(echo $(dirname $(readlink -f $0))/.config)
 
 exec slstatus & 
 
-echo "$(date +"%F %T")     IN" >> "$STORAGELOC/logtimes"
+echo "$(date +"%F %T")     IN" >> "$path_storage/logtimes"
 screen-secondmonitor
 wallpaper
 stock-update 

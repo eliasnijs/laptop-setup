@@ -1,23 +1,23 @@
 #!/bin/sh
 
-CONFIGLOC="/home/eliasnijs/System/scripts/.config/darkmode"
-nm=$(cat $CONFIGLOC)
+path=$(echo $(dirname $(readlink -f $0))/.config/darkmode)
+nm=$(cat $path)
 
 if [ "$1" = "get" ]; then
 	echo $nm
 elif [ "$1" = "toggle" ]; then
 	if [ "$nm" = "1" ]; then
-		echo "0" > $CONFIGLOC
+		echo "0" > $path
 	else
-		echo "1" > $CONFIGLOC
+		echo "1" > $path
 	fi
 	wallpaper
 elif [ "$(echo $* | wc -c)" -le "1" ]; then
-	nm=$(cat $CONFIGLOC)
+	nm=$(cat $path)
 	if [ "$nm" = "1" ]; then
-		echo "0" > $CONFIGLOC
+		echo "0" > $path
 	else
-		echo "1" > $CONFIGLOC
+		echo "1" > $path
 	fi
 else
 	echo "invalid option!"

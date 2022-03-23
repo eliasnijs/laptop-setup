@@ -1,5 +1,8 @@
 #!/bin/sh
 
+
+# TODO (add default alarm tone)
+
 time=$(( $1 - 1 ))
 while [ $time -ge 0 ]
 do
@@ -21,7 +24,7 @@ do
   done
   time=$(( $time - 1 ))
 done
-mpv $2
+mpv "$2"
 
 sleep 2
 exit

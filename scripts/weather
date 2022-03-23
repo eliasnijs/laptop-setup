@@ -1,3 +1,6 @@
+#!/bin/sh
+
+# TODO (Elias): change this to fetch current location
 weather=$(curl -s wttr.in/Gent?format="%C+%t")
 if [ $(echo $weather | wc -c) -gt 30 ]; then
    weather="!ERROR"

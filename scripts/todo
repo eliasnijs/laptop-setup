@@ -1,9 +1,12 @@
 #!/usr/bin/env python3
 
 import sys
+import os
+
+path = os.path.realpath(__file__).rstrip("todo") + ".storage/todo"
 
 items = []
-for x in open("/home/eliasnijs/System/scripts/.storage/todo"):
+for x in open(path):
     items.append(x.strip())
 
 args = sys.argv[1:]
@@ -16,16 +19,22 @@ if len(args) <= 1:
 else:
     opt = args[0]
     item = " ".join(args[1:])
-    assert opt == 'a' or opt == 'r', "invalid option"
+    if not (opt == 'a' or opt == 'r'):
+        print("invalid option")
+        sys.exit()
     if opt == 'a':
         items.append(item)
     if opt == 'r':
-        assert item.isdigit(), "invalid index"
+        if not item.isdigit():
+            print("invalid index")
+            sys.exit()
         index = int(item) - 1
-        assert 0 <= index < len(items), "invalid index"
+        if not (0 <= index < len(items)):
+            print("invalid index")
+            sys.exit()
         items.pop(index)
 
     items = "\n".join(items)
-    f = open("/home/eliasnijs/System/scripts/.storage/todo","w")
+    f = open(path,"w")
     f.write(items)
     f.close()

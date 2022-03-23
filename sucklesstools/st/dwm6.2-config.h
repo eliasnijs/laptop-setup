@@ -1,1 +1,0 @@
-/home/eliasnijs/System/configfiles/dwm6.2-config.h
