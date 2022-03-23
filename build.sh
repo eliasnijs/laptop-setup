@@ -6,8 +6,6 @@
 BASEDIR=$(dirname "$0")
 cd $BASEDIR
 
-# NOTE (Elias): copy pasting these is so fast that we don't need to check if
-# the files were updated.
 cp ./configuration/bashrc ~/.bashrc
 cp ./configuration/vimrc ~/.vimrc
 cp ./configuration/vimrc ~/.config/nvim/init.vim
@@ -29,3 +27,5 @@ update_suckless_tool "./configuration/st-config.h" "./sucklesstools/st/config.h"
 update_suckless_tool "./configuration/dwm6.2-config.h" "./sucklesstools/dwm-6.2/config.h"
 update_suckless_tool "./configuration/slstatus-config.h" "./sucklesstools/slstatus/config.h"
 
+cd scripts
+  sudo ./setup 2> /dev/null
