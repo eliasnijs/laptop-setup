@@ -2626,13 +2626,15 @@ tresize(int col, int row)
 }
 
 void
-resettitle(void)
+resettitle
+(void)
 {
 	xsettitle(NULL);
 }
 
 void
-drawregion(int x1, int y1, int x2, int y2)
+drawregion
+(int x1, int y1, int x2, int y2)
 {
 	int y;
 
@@ -2646,7 +2648,8 @@ drawregion(int x1, int y1, int x2, int y2)
 }
 
 void
-draw(void)
+draw
+(void)
 {
 	int cx = term.c.x, ocx = term.ocx, ocy = term.ocy;
 
@@ -2674,8 +2677,19 @@ draw(void)
 }
 
 void
-redraw(void)
+redraw
+(void)
 {
 	tfulldirt();
 	draw();
 }
+
+
+
+
+
+
+
+
+
+

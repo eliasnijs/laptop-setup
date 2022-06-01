@@ -5,6 +5,8 @@ alias b='build'
 alias r='run'
 alias br='b && r'
 alias open='xdg-open'
+alias dir='ls -l'
+alias cls='clear'
 
 export _JAVA_AWT_WM_NONREPARENTING=1
 

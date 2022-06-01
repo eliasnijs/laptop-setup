@@ -67,7 +67,7 @@ static const char unknown_str[] = "n/a";
 static const struct arg args[] = {
 	/* function format          argument */
    // { run_command, "%s | ","echo $(cat /home/eliasnijs/System/scripts/.storage/stocks)"},
-   { ram_perc,"RAM %3s% | ",          NULL                },
+   { ram_perc," RAM %3s% | ",          NULL                },
    { cpu_perc,"CPU %3s% | ",          NULL                },
    { wifi_essid, "%s ",             "wlo1"               },
    { wifi_perc,"%3s% | ",            "wlo1"               },

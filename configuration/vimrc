@@ -1,51 +1,35 @@
 set nocompatible
 
+" -------------------------------------------------------
 " ------- PLUGINS ---------------------------------------
+" -------------------------------------------------------
 let g:ale_disable_lsp = 1
 call plug#begin()
 	" functionality
-  Plug 'preservim/nerdtree'
-  Plug 'vim-airline/vim-airline-themes'
   Plug 'vim-airline/vim-airline'
   Plug 'tomtom/tcomment_vim'
-  Plug 'airblade/vim-gitgutter'
   Plug 'junegunn/fzf'
-	Plug 'neoclide/coc.nvim', {'branch': 'release'}
   Plug 'tpope/vim-obsession'
-	Plug 'dense-analysis/ale'
   Plug 'norcalli/nvim-colorizer.lua'
-    
-  "   " Haskell
-  " Plug 'alx741/vim-hindent'
-  " Plug 'ndmitchell/ghcid', { 'rtp': 'plugins/nvim' }
-  " Plug 'rbgrouleff/bclose.vim'
-  " Plug 'hasufell/ghcup.vim'
-  " Plug 'parsonsmatt/intero-neovim'
-	
   " colorschemes 
-	Plug 'sheerun/vim-polyglot'
+  Plug 'flazz/vim-colorschemes'
 	Plug 'lifepillar/vim-solarized8'
   Plug 'stefanvanburen/rams.vim'
   Plug 'morhetz/gruvbox'
-	Plug 'doums/darcula'
-	Plug 'CreaturePhil/vim-handmade-hero'
+Plug 'doums/darcula'
+Plug 'CreaturePhil/vim-handmade-hero'
 call plug#end()
 
-" nerdtree
-let NERDTreeQuitOnOpen=0
-
-" colorizer
-set termguicolors
-lua require'colorizer'.setup()
-
+" -------------------------------------------------------
+" ------ CONFIG ----------------------------------------- 
+" -------------------------------------------------------
 " general 
 let g:indent_guides_guide_size = 1
 let g:indent_guides_color_change_percent = 3
 let g:indent_guides_enable_on_vim_startup = 1
 
-" ------ CONFIG ----------------------------------------- 
 " directory
-nnoremap mn :NERDTree<CR>
+nnoremap md :e .<cr>
 nnoremap mf :FZF<CR>
 
 " building and saving
@@ -56,19 +40,19 @@ nnoremap mt :!
 nnoremap mm :w<CR>:!build<CR>
 nnoremap mr :w<Cr>:!run<CR>
 nnoremap me :w<CR>:!build && run<cr>
-" coding
-nnoremap md :ALEDetail<cr>
-nnoremap mo :CocOutline<cr>
 
 " windows
 nnoremap mv :vertical resize 
-nnoremap mh :resize
+nnoremap mh :resize 
 
 " customization
-nnoremap mb :let &bg=(&bg=='light'?'dark':'light')<CR> :let g:airline_theme=(&bg=='light'?'base16_solarized_light':'base16_solarized_dark')<CR>
-nnoremap mg :Goyo<CR>
+" nnoremap mb :let &bg=(&bg=='light'?'dark':'light')<CR> :let g:airline_theme=(&bg=='light'?'base16_solarized_light':'base16_solarized_dark')<CR>
+nnoremap mb :let &bg=(&bg=='light'?'dark':'light')<CR> 
 
+" -------------------------------------------------------
 " ------ CONFIG ----------------------------------------- 
+" -------------------------------------------------------
+set termguicolors
 set autoindent
 set smartindent
 set expandtab
@@ -77,52 +61,24 @@ set shiftwidth=2
 set softtabstop=2
 set cursorline
 set number
-set relativenumber
 set nowrap
 set mouse=v
 set hlsearch
 set showmatch
-
 syntax on           
-let &t_8f = "\<Esc>[38;2;%lu;%lu;%lum"
-let &t_8b = "\<Esc>[48;2;%lu;%lu;%lum"
+let g:netrw_liststyle = 3
+let g:netrw_banner = 0
+" let &t_8f = "\<Esc>[38;2;%lu;%lu;%lum"
+" let &t_8b = "\<Esc>[48;2;%lu;%lu;%lum"
 
-" ------ HASKELL ---------------------------------------- 
-" let g:haskell_indent_if = 2
-" let g:haskell_indent_before_where = 2
-" let g:haskell_indent_case_alternative = 1
-" let g:haskell_indent_let_no_in = 0
-" let g:ale_linters = {}
-" let g:ale_linters.haskell = ['stack-ghc-mod', 'hlint']
-" let g:haskell_indent_if = 2
-" let g:haskell_indent_before_where = 2
-" let g:haskell_indent_case_alternative = 1
-" let g:haskell_indent_let_no_in = 0
-" let g:hindent_on_save = 0
-" function! HaskellFormat(which) abort
-"   if a:which ==# 'hindent' || a:which ==# 'both'
-"     :Hindent
-"   endif
-"   if a:which ==# 'stylish' || a:which ==# 'both'
-"     silent! exe 'undojoin'
-"     silent! exe 'keepjumps %!stylish-haskell'
-"   endif
-" endfunction
-"
-" augroup haskellStylish
-"   au!
-"   au FileType haskell nnoremap <leader>hi :Hindent<CR>
-"   au FileType haskell nnoremap <leader>hs :call HaskellFormat('stylish')<CR>
-"   au FileType haskell nnoremap <leader>hf :call HaskellFormat('both')<CR>
-" augroup END
-
+" -------------------------------------------------------
 " ------ COLORSCHEME ------------------------------------
-
+" -------------------------------------------------------
 " let darkmode=system('darkmode get')
 " let &bg=(darkmode=~0?'light':'dark')
 " colorscheme solarized8
 " let g:airline_theme=(&bg=='light'?'base16_solarized_light':'base16_solarized_dark')
 
-color handmade
+colorscheme handmade
 set nocursorline
 
