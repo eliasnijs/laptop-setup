@@ -7,6 +7,7 @@ alias br='b && r'
 alias open='xdg-open'
 alias dir='ls -l'
 alias cls='clear'
+alias goto='cd'
 
 export _JAVA_AWT_WM_NONREPARENTING=1
 

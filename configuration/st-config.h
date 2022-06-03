@@ -76,6 +76,8 @@ static int bellvolume = 0;
 /* default TERM value */
 char *termname = "st-256color";
 
+
+
 /*
  * spaces per tab
  *
@@ -92,6 +94,9 @@ char *termname = "st-256color";
  *	stty tabs
  */
 unsigned int tabspaces = 8;
+
+/* bg opacity */
+float alpha = 0.8;
 
 /* Terminal colors (16 first used in escape sequence) */
 static const char *colorname[] = {
@@ -120,6 +125,7 @@ static const char *colorname[] = {
 	/* more colors can be added after 255 to use with DefaultXX */
 	"#04ff04",
 	"#555555",
+ 	"#000000",
 };
 
 
@@ -128,7 +134,7 @@ static const char *colorname[] = {
  * foreground, background, cursor, reverse cursor
  */
 unsigned int defaultfg = 7;
-unsigned int defaultbg = 0;
+unsigned int defaultbg = 258;
 static unsigned int defaultcs = 256;
 static unsigned int defaultrcs = 257;
 

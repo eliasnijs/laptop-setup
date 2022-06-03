@@ -41,7 +41,7 @@ function! s:HL(group, fg, ...)
 endfunction
 
 " Colors
-let s:back =          ['#0F0F0F', 233]
+let s:back =          ['#000000', 233]
 let s:default =       ['#CDAA7D', 137]
 let s:margin =        ["#262626", 235]
 let s:margin_hover =  ["#333333", 236]

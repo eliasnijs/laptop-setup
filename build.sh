@@ -13,6 +13,8 @@ cp ./configuration/vimrc ~/.vimrc
 cp ./configuration/vimrc ~/.config/nvim/init.vim
 cp ./configuration/vim-themes/* ~/.config/nvim/colors/
 
+cp ./configuration/picom.conf ~/.config/picom/picom.conf
+
 update_suckless_tool()
 {
   SRC=$1

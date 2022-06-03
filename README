@@ -1,5 +1,5 @@
 NOTE: This Project is still in development and has not had 
-any fully working release !
+any fully working release!
 
 Elias Nijs                                          2021-2022
 
@@ -9,8 +9,7 @@ Elias Nijs                                          2021-2022
 repository containing all the files related to my 
 laptop setup
 
-2. How to use
-Run the build script
-
-3. Included
-...
+2. TODOs
+- setup documentation and feature overview
+- create dependency list per program/script
+- expand readme

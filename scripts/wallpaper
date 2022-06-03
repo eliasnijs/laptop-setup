@@ -1,7 +1,10 @@
 #!/bin/bash
 
-wallpaperfolder=$(echo $(dirname $(readlink -f $0))/.config/wallpaper)
-wallpaper_loc=$(echo $(dirname $(readlink -f $0))/.config/wallpaper/wallpaper)
+current_loc=$(pwd)
+script_loc=$(dirname $(readlink -f $0))
+cd $script_loc 
+wallpaperfolder="../configuration/wallpapers/"
+wallpaper_loc="../configuration/wallpapers/wallpaper.png"
 
 add=0
 file=""
@@ -22,7 +25,7 @@ do
          ;;
       f)
          random=1
-         folder=$(pwd)
+         folder=$current_loc
          ;;
       s)
          setwallpaper=1
@@ -49,5 +52,7 @@ fi
 if [ "$setwallpaper" -eq "1" ]; then
 	cp $wallpaper $wallpaper_loc 
 fi
+
+echo $wallpaper_loc
 
 feh --bg-fill $wallpaper_loc
