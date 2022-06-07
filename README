@@ -10,6 +10,12 @@ repository containing all the files related to my
 laptop setup
 
 2. TODOs
+- build new sound scripts
+- build a new brightness script
+- expand weather script with fetch location
+- expand alarm script with default alarm tone
+- expand todofinder to be able to find any word given
 - setup documentation and feature overview
 - create dependency list per program/script
 - expand readme
+- create password manager script (interacts with dmenu)

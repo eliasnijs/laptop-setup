@@ -1,0 +1,8 @@
+#!/bin/sh
+
+while [ 1 ]
+do
+  clear
+  figlet -f future.flf "$(date +"%H:%M")"
+  sleep 30
+done

@@ -17,7 +17,7 @@ do
       if [ $(echo $time | wc -c ) -lt 3 ]; then
         pminutes=$(echo 0$time)
       fi
-		clear
+		  clear
       figlet -f future.flf "$pminutes:$pseconds"
       seconds=$(( $seconds - 1  ))
       sleep 1

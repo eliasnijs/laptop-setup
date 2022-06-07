@@ -7,6 +7,7 @@ let g:ale_disable_lsp = 1
 call plug#begin()
 	" functionality
   Plug 'vim-airline/vim-airline'
+  Plug 'vimsence/vimsence'
   Plug 'tomtom/tcomment_vim'
   Plug 'junegunn/fzf'
   Plug 'tpope/vim-obsession'
@@ -23,11 +24,6 @@ call plug#end()
 " -------------------------------------------------------
 " ------ CONFIG ----------------------------------------- 
 " -------------------------------------------------------
-" general 
-let g:indent_guides_guide_size = 1
-let g:indent_guides_color_change_percent = 3
-let g:indent_guides_enable_on_vim_startup = 1
-
 " directory
 nnoremap md :e .<cr>
 nnoremap mf :FZF<CR>
@@ -52,6 +48,11 @@ nnoremap mb :let &bg=(&bg=='light'?'dark':'light')<CR>
 " -------------------------------------------------------
 " ------ CONFIG ----------------------------------------- 
 " -------------------------------------------------------
+" general 
+let g:indent_guides_guide_size = 1
+let g:indent_guides_color_change_percent = 3
+let g:indent_guides_enable_on_vim_startup = 1
+
 set termguicolors
 set autoindent
 set smartindent
