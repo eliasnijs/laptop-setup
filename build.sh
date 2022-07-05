@@ -30,6 +30,7 @@ update_suckless_tool()
 update_suckless_tool "./configuration/st-config.h" "./sucklesstools/st/config.h"
 update_suckless_tool "./configuration/dwm6.2-config.h" "./sucklesstools/dwm-6.2/config.h"
 update_suckless_tool "./configuration/slstatus-config.h" "./sucklesstools/slstatus/config.h"
+update_suckless_tool "./configuration/dmenu-config.h" "./sucklesstools/dmenu/config.h"
 
 cd scripts
 sudo ./setup 2> /dev/null

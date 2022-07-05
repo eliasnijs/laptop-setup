@@ -1,6 +1,6 @@
 #!/bin/sh
 
-APIKEY="gxj9XCsP31C89ATE9fDn1mpQUQ3BLoYj8ZPTcx40"
+APIKEY="HYMBTMoDE51PaUeLuKgJz6O7XvjKSJoW2UEmfVjk"
 
 path=$(echo $(dirname $(readlink -f $0))/.storage/stocks)
 

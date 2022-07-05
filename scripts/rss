@@ -1,0 +1,6 @@
+#!/bin/sh
+
+NR_LN=75
+
+sfeed_update
+sfeed_plain ~/.sfeed/feeds/* | sort -r -n -t- -k1,1 -k2,2 -k3,3 | dmenu -l $NR_LN | sed "s/^.* //" | xargs xdg-open

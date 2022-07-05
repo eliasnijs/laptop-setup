@@ -1,0 +1,10 @@
+#!/bin/sh
+
+SRC="/dev/sda1"
+DIR="/mountpoint/"
+
+if [ ! -d "$DIR" ]; then
+  sudo mkdir $DIR
+fi
+
+sudo mount $SRC $DIR

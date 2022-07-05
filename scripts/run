@@ -2,14 +2,14 @@
 f=3
 while [ $f -gt 0 ]
 do
-   if [ -f "./run.sh" ]; then
-      ./run.sh $*
-      f=0
-	elif [ -f "./Makefile" ]; then
-		make test $*
+  if [ -f "./run.sh" ]; then
+    ./run.sh $*
+    f=0
+	elif [ -f "./makefile" ]; then
+		make run $*
 		f=0
    else
-      cd ../
-      f=$(echo "$f-1" | bc)
+    cd ../
+    f=$(echo "$f-1" | bc)
    fi
 done

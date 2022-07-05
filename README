@@ -10,6 +10,7 @@ repository containing all the files related to my
 laptop setup
 
 2. TODOs
+- bugfix: stockscripts are broken
 - build new sound scripts
 - build a new brightness script
 - expand weather script with fetch location

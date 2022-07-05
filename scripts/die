@@ -6,4 +6,3 @@ path_storage="./.storage"
 
 echo "\"$(date +"%F %T")\",OFF" >> "$path_storage/logtimes"
 shutdown 0
-

@@ -8,6 +8,7 @@ alias open='xdg-open'
 alias dir='ls -l'
 alias cls='clear'
 alias goto='cd'
+alias shutdown='die'
 
 export _JAVA_AWT_WM_NONREPARENTING=1
 

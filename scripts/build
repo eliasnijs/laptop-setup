@@ -5,7 +5,7 @@ do
    if [ -f "build.sh" ]; then
       ./build.sh $*
       f=-1
-	 elif [ -f "Makefile" ]; then
+	 elif [ -f "makefile" ]; then
 	    make $*
 	    f=-1
    else

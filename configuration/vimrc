@@ -11,39 +11,18 @@ call plug#begin()
   Plug 'tomtom/tcomment_vim'
   Plug 'junegunn/fzf'
   Plug 'tpope/vim-obsession'
+  Plug 'junegunn/goyo.vim'
   Plug 'norcalli/nvim-colorizer.lua'
   " colorschemes 
-  Plug 'flazz/vim-colorschemes'
 	Plug 'lifepillar/vim-solarized8'
   Plug 'stefanvanburen/rams.vim'
   Plug 'morhetz/gruvbox'
-Plug 'doums/darcula'
-Plug 'CreaturePhil/vim-handmade-hero'
+  Plug 'doums/darcula'
+  Plug 'CreaturePhil/vim-handmade-hero'
 call plug#end()
 
-" -------------------------------------------------------
-" ------ CONFIG ----------------------------------------- 
-" -------------------------------------------------------
-" directory
-nnoremap md :e .<cr>
-nnoremap mf :FZF<CR>
-
-" building and saving
-nnoremap mq :wqa<CR>
-nnoremap mw :w<CR>
-nnoremap ms :wa<CR>
-nnoremap mt :!
-nnoremap mm :w<CR>:!build<CR>
-nnoremap mr :w<Cr>:!run<CR>
-nnoremap me :w<CR>:!build && run<cr>
-
-" windows
-nnoremap mv :vertical resize 
-nnoremap mh :resize 
-
-" customization
-" nnoremap mb :let &bg=(&bg=='light'?'dark':'light')<CR> :let g:airline_theme=(&bg=='light'?'base16_solarized_light':'base16_solarized_dark')<CR>
-nnoremap mb :let &bg=(&bg=='light'?'dark':'light')<CR> 
+set termguicolors
+lua require'colorizer'.setup()
 
 " -------------------------------------------------------
 " ------ CONFIG ----------------------------------------- 
@@ -66,11 +45,54 @@ set nowrap
 set mouse=v
 set hlsearch
 set showmatch
-syntax on           
+
 let g:netrw_liststyle = 3
 let g:netrw_banner = 0
+
 " let &t_8f = "\<Esc>[38;2;%lu;%lu;%lum"
 " let &t_8b = "\<Esc>[48;2;%lu;%lu;%lum"
+
+syntax on           
+
+" -------------------------------------------------------
+" ------ KEYBOARD ---------------------------------------
+" -------------------------------------------------------
+" directory
+nnoremap mdd :e .<cr>
+nnoremap mdf :FZF<CR>
+
+" building and saving
+nnoremap mt :!
+nnoremap mm :w<CR>:!build<CR>
+nnoremap mr :w<Cr>:!run<CR>
+
+" windows
+nnoremap mg :Goyo<CR>
+nnoremap mv :vertical resize 
+nnoremap mh :resize 
+
+" programming
+nnoremap mfd :exe 'grep -rn "^' . expand("<cword>") . '" .'<CR>
+nnoremap mfh /^[^ ]*(<CR>
+
+" customization
+" nnoremap mb :let &bg=(&bg=='light'?'dark':'light')<CR> :let g:airline_theme=(&bg=='light'?'base16_solarized_light':'base16_solarized_dark')<CR>
+
+" -------------------------------------------------------
+" ------ EXTRA SYNTAX -----------------------------------
+" -------------------------------------------------------
+function! UpdateTodoKeywords(...)
+    let newKeywords = join(a:000, " ")
+    let synTodo = map(filter(split(execute("syntax list"), '\n') , { i,v -> match(v, '^\w*Todo\>') == 0}), {i,v -> substitute(v, ' .*$', '', '')})
+    for synGrp in synTodo
+        execute "syntax keyword " . synGrp . " contained " . newKeywords
+    endfor
+endfunction
+
+augroup now
+    autocmd!
+    autocmd Syntax * call UpdateTodoKeywords("NOTE", "NOTES", "IMPORTANT", "DOCUMENTATION", "QUESTION", "POSSIBLE BUG")
+augroup END
 
 " -------------------------------------------------------
 " ------ COLORSCHEME ------------------------------------
@@ -80,6 +102,6 @@ let g:netrw_banner = 0
 " colorscheme solarized8
 " let g:airline_theme=(&bg=='light'?'base16_solarized_light':'base16_solarized_dark')
 
-colorscheme handmade
+colorscheme twilight
 set nocursorline
 
