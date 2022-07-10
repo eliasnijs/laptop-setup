@@ -9,7 +9,7 @@ exec slstatus &
 screen-secondmonitor
 wallpaper
 
-exec picom &
+# exec picom &
 
 setxkbmap -option caps:swapescape
 
