@@ -1,14 +1,39 @@
+source /home/eliasnijs/System/scripts/goto
+
+alias r='source ~/.bashrc'
+
 alias l='ls -l'
 alias la='ls -a'
+alias dir='ls -l -p --group-directories-first'
+alias d='dir'
+
+alias g='goto'
+alias gh='cd $(gotoh | fzf)'
+
+alias cls='clear'
+alias c='cls'
+
+alias he='history | cut -c 8- | fzf'
+alias h='eval $(history | cut -c 8- | fzf)'
+
+alias shutdown='die'
+
+alias show='cat --number' 
+alias open='xdg-open' 
+alias o='xdg-open' 
 alias vim='nvim'
+alias vim='nvim'
+alias v='vim'
+alias e='v'
+
 alias b='build'
 alias r='run'
-alias br='b && r'
-alias open='xdg-open'
-alias dir='ls -l'
-alias cls='clear'
-alias goto='cd'
-alias shutdown='die'
+alias br='b && r' 
+
+alias t='show todo' 
+alias s='grep -rn'
+
+alias feh='feh --reload 0.5'
 
 export _JAVA_AWT_WM_NONREPARENTING=1
 
@@ -22,7 +47,7 @@ HISTCONTROL=ignoreboth
 shopt -s histappend
 
 HISTSIZE=1000
-HISTFILESIZE=2000
+HISTFILESIZE=3000
 
 shopt -s checkwinsize
 
@@ -79,9 +104,4 @@ if ! shopt -oq posix; then
   fi
 fi
 
-export NVM_DIR="$HOME/.nvm"
-[ -s "$NVM_DIR/nvm.sh" ] && \. "$NVM_DIR/nvm.sh"  # This loads nvm
-[ -s "$NVM_DIR/bash_completion" ] && \. "$NVM_DIR/bash_completion"  # This loads nvm bash_completion
-
-export PS1="\[\033[01m\]\u@\h:\w\[\033[00;00m\]\[\033[1m\]\$(git branch 2> /dev/null | sed -e '/^[^*]/d' -e 's/* \(.*\)/  \1/')\[\033[00m\]\[\033[01m\] >\[$(tput sgr0)\]\[\033[00m\] "
-
+export PS1="\[\033[01m\]\u@\h:\w\[\033[00;00m\]\[\033[1m\]\$(git branch 2> /dev/null | sed -e '/^[^*]/d' -e 's/* \(.*\)/  \1/')\[\033[00m\]\[\033[01m\] >\[$(tput sgr0)\]\[\033[00m\] " 

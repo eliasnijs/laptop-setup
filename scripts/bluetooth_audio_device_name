@@ -1,0 +1,6 @@
+#!/bin/sh
+
+MAC=$(pactl list short sinks | grep -o bluez_sink\.[^.]*\. | sed s/[^.]*\.// | sed s/\.$// | sed s/_/:/g) 
+if [ "${MAC}" != "" ]; then
+  bluetoothctl devices | grep $MAC | sed "s/Device [^ ]* //"
+fi

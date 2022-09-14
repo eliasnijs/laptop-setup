@@ -7,7 +7,6 @@ let g:ale_disable_lsp = 1
 call plug#begin()
 	" functionality
   Plug 'vim-airline/vim-airline'
-  Plug 'vimsence/vimsence'
   Plug 'tomtom/tcomment_vim'
   Plug 'junegunn/fzf'
   Plug 'tpope/vim-obsession'
@@ -19,10 +18,13 @@ call plug#begin()
   Plug 'morhetz/gruvbox'
   Plug 'doums/darcula'
   Plug 'CreaturePhil/vim-handmade-hero'
+  Plug 'tomasiser/vim-code-dark'
 call plug#end()
 
 set termguicolors
 lua require'colorizer'.setup()
+
+let g:ackprg = 'grep -rn'
 
 " -------------------------------------------------------
 " ------ CONFIG ----------------------------------------- 
@@ -41,10 +43,13 @@ set shiftwidth=2
 set softtabstop=2
 set cursorline
 set number
+set relativenumber
 set nowrap
 set mouse=v
 set hlsearch
 set showmatch
+set splitbelow
+set splitright
 
 let g:netrw_liststyle = 3
 let g:netrw_banner = 0
@@ -52,31 +57,40 @@ let g:netrw_banner = 0
 " let &t_8f = "\<Esc>[38;2;%lu;%lu;%lum"
 " let &t_8b = "\<Esc>[48;2;%lu;%lu;%lum"
 
-syntax on           
+syntax off
 
 " -------------------------------------------------------
 " ------ KEYBOARD ---------------------------------------
 " -------------------------------------------------------
 " directory
-nnoremap mdd :e .<cr>
-nnoremap mdf :FZF<CR>
+nnoremap md :e .<cr>
+nnoremap mf :FZF<CR>
 
 " building and saving
-nnoremap mt :!
 nnoremap mm :w<CR>:!build<CR>
 nnoremap mr :w<Cr>:!run<CR>
 
 " windows
-nnoremap mg :Goyo<CR>
-nnoremap mv :vertical resize 
-nnoremap mh :resize 
+nnoremap mwg :Goyo<CR>
+nnoremap mwv :vertical resize 
+nnoremap mwh :resize 
 
-" programming
-nnoremap mfd :exe 'grep -rn "^' . expand("<cword>") . '" .'<CR>
-nnoremap mfh /^[^ ]*(<CR>
+" term
+nnoremap mt :!
+
+" seek
+nnoremap msc /expand("<cword>")<CR>
+
+nnoremap msa :!grep -rn 
+nnoremap msf /^[^ ]*(<CR>
+nnoremap mss /^struct [^ \n]*<CR>
 
 " customization
 " nnoremap mb :let &bg=(&bg=='light'?'dark':'light')<CR> :let g:airline_theme=(&bg=='light'?'base16_solarized_light':'base16_solarized_dark')<CR>
+
+nnoremap m/ :nohlsearch<CR> 
+
+tnoremap <ESC> <C-\><C-N>
 
 " -------------------------------------------------------
 " ------ EXTRA SYNTAX -----------------------------------
@@ -102,6 +116,6 @@ augroup END
 " colorscheme solarized8
 " let g:airline_theme=(&bg=='light'?'base16_solarized_light':'base16_solarized_dark')
 
-colorscheme twilight
-set nocursorline
+" colorscheme handmade
+set nocursorline 
 
