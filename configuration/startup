@@ -13,5 +13,7 @@ wallpaper
 
 setxkbmap -option caps:swapescape
 
-stock-update 
+stock-update
 echo "\"$(date +"%F %T")\",ON" >> "$path_storage/logtimes"
+
+watcher -s

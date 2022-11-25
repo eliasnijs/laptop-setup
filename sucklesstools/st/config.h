@@ -77,7 +77,6 @@ static int bellvolume = 0;
 char *termname = "st-256color";
 
 
-
 /*
  * spaces per tab
  *

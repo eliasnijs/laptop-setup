@@ -5,20 +5,19 @@ set nocompatible
 " -------------------------------------------------------
 let g:ale_disable_lsp = 1
 call plug#begin()
-	" functionality
-  Plug 'vim-airline/vim-airline'
-  Plug 'tomtom/tcomment_vim'
-  Plug 'junegunn/fzf'
-  Plug 'tpope/vim-obsession'
-  Plug 'junegunn/goyo.vim'
-  Plug 'norcalli/nvim-colorizer.lua'
-  " colorschemes 
-	Plug 'lifepillar/vim-solarized8'
-  Plug 'stefanvanburen/rams.vim'
-  Plug 'morhetz/gruvbox'
-  Plug 'doums/darcula'
-  Plug 'CreaturePhil/vim-handmade-hero'
-  Plug 'tomasiser/vim-code-dark'
+" functionality
+Plug 'vim-airline/vim-airline'
+Plug 'tomtom/tcomment_vim'
+Plug 'junegunn/fzf'
+Plug 'tpope/vim-obsession'
+Plug 'junegunn/goyo.vim'
+Plug 'preservim/nerdtree'
+" colorschemes
+Plug 'tomasiser/vim-code-dark'
+Plug 'stefanvanburen/rams.vim'
+Plug 'morhetz/gruvbox'
+Plug 'doums/darcula'
+Plug 'CreaturePhil/vim-handmade-hero'
 call plug#end()
 
 set termguicolors
@@ -27,9 +26,9 @@ lua require'colorizer'.setup()
 let g:ackprg = 'grep -rn'
 
 " -------------------------------------------------------
-" ------ CONFIG ----------------------------------------- 
+" ------ CONFIG -----------------------------------------
 " -------------------------------------------------------
-" general 
+" general
 let g:indent_guides_guide_size = 1
 let g:indent_guides_color_change_percent = 3
 let g:indent_guides_enable_on_vim_startup = 1
@@ -72,8 +71,8 @@ nnoremap mr :w<Cr>:!run<CR>
 
 " windows
 nnoremap mwg :Goyo<CR>
-nnoremap mwv :vertical resize 
-nnoremap mwh :resize 
+nnoremap mwv :vertical resize
+nnoremap mwh :resize
 
 " term
 nnoremap mt :!
@@ -81,14 +80,14 @@ nnoremap mt :!
 " seek
 nnoremap msc /expand("<cword>")<CR>
 
-nnoremap msa :!grep -rn 
+nnoremap msa :!grep -rn
 nnoremap msf /^[^ ]*(<CR>
 nnoremap mss /^struct [^ \n]*<CR>
 
 " customization
 " nnoremap mb :let &bg=(&bg=='light'?'dark':'light')<CR> :let g:airline_theme=(&bg=='light'?'base16_solarized_light':'base16_solarized_dark')<CR>
 
-nnoremap m/ :nohlsearch<CR> 
+nnoremap m/ :nohlsearch<CR>
 
 tnoremap <ESC> <C-\><C-N>
 
@@ -96,16 +95,16 @@ tnoremap <ESC> <C-\><C-N>
 " ------ EXTRA SYNTAX -----------------------------------
 " -------------------------------------------------------
 function! UpdateTodoKeywords(...)
-    let newKeywords = join(a:000, " ")
-    let synTodo = map(filter(split(execute("syntax list"), '\n') , { i,v -> match(v, '^\w*Todo\>') == 0}), {i,v -> substitute(v, ' .*$', '', '')})
-    for synGrp in synTodo
-        execute "syntax keyword " . synGrp . " contained " . newKeywords
-    endfor
+	let newKeywords = join(a:000, " ")
+	let synTodo = map(filter(split(execute("syntax list"), '\n') , { i,v -> match(v, '^\w*Todo\>') == 0}), {i,v -> substitute(v, ' .*$', '', '')})
+	for synGrp in synTodo
+		execute "syntax keyword " . synGrp . " contained " . newKeywords
+	endfor
 endfunction
 
 augroup now
-    autocmd!
-    autocmd Syntax * call UpdateTodoKeywords("NOTE", "NOTES", "IMPORTANT", "DOCUMENTATION", "QUESTION", "POSSIBLE BUG")
+	autocmd!
+	autocmd Syntax * call UpdateTodoKeywords("NOTE", "NOTES", "IMPORTANT", "DOCUMENTATION", "QUESTION", "POSSIBLE BUG")
 augroup END
 
 " -------------------------------------------------------
@@ -116,6 +115,18 @@ augroup END
 " colorscheme solarized8
 " let g:airline_theme=(&bg=='light'?'base16_solarized_light':'base16_solarized_dark')
 
-" colorscheme handmade
-set nocursorline 
+" syntax off
+" set nocursorline
+" colorscheme default
+
+syntax on
+colorscheme handmade
+set nocursorline
+
+" set termguicolors
+" syntax on
+" let g:gruvbox_contrast_dark='medium'
+" let g:gruvbox_contrast_light='hard'
+" set background=light
+" colorscheme gruvbox
 

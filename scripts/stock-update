@@ -1,8 +1,0 @@
-#!/bin/sh
-
-
-path=$(echo $(dirname $(readlink -f $0))/.storage/stocks)
-for x  in $(cat $path | sed "s/:.*//") 
-do 
-	echo "$x: $(stock-get $x)"
-done

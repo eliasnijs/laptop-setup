@@ -64,15 +64,17 @@ static const char unknown_str[] = "n/a";
  * wifi_essid          WiFi ESSID                      interface name (wlan0)
  */
 
+   // { run_command,  "%s | ","echo $(cat /home/eliasnijs/System/scripts/.storage/stocks)"},
+   //
 static const struct arg args[] = {
-	/* function format          argument */
-   // { run_command, "%s | ","echo $(cat /home/eliasnijs/System/scripts/.storage/stocks)"},
-   { ram_perc," RAM %3s% | ",          NULL                },
-   { cpu_perc,"CPU %3s% | ",          NULL                },
-   { wifi_essid, "%s ",             "wlo1"               },
-   { wifi_perc,"%3s% | ",            "wlo1"               },
-   { battery_state, "BAT%s ",       "BAT1"               },
-   { battery_perc, "%3s% | ",        "BAT1"               },
-   { datetime, "%s ",               "%F %T"              },
+   { run_command,     "%s | ",          "weather"            },
+   { ram_perc,        "RAM %3s% | ",    NULL                 },
+   { cpu_perc,        "CPU %3s% | ",    NULL                 },
+   { wifi_essid,      "%s ",            "wlo1"               },
+   { wifi_perc,       "%3s% | ",        "wlo1"               },
+   { battery_state,   "BAT%s ",         "BAT1"               },
+   { battery_perc,    "%3s% | ",        "BAT1"               },
+   { datetime,        "%s ",            "%F %T"              },
 };
+
 

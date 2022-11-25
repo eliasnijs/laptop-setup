@@ -33,7 +33,9 @@ alias br='b && r'
 alias t='show todo' 
 alias s='grep -rn'
 
-alias feh='feh --reload 0.5'
+alias fehr='feh --reload 0.5'
+
+alias line="echo ────────────────────────────────────────────────────────────────────────────────────────"
 
 export _JAVA_AWT_WM_NONREPARENTING=1
 
