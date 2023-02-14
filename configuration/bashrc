@@ -1,6 +1,4 @@
-source /home/eliasnijs/System/scripts/goto
-
-alias r='source ~/.bashrc'
+alias reloadbash='source ~/.bashrc'
 
 alias l='ls -l'
 alias la='ls -a'
@@ -18,9 +16,9 @@ alias h='eval $(history | cut -c 8- | fzf)'
 
 alias shutdown='die'
 
-alias show='cat --number' 
-alias open='xdg-open' 
-alias o='xdg-open' 
+alias show='cat --number'
+alias open='xdg-open'
+alias o='xdg-open'
 alias vim='nvim'
 alias vim='nvim'
 alias v='vim'
@@ -28,9 +26,9 @@ alias e='v'
 
 alias b='build'
 alias r='run'
-alias br='b && r' 
+alias br='b && r'
 
-alias t='show todo' 
+alias t='show todo'
 alias s='grep -rn'
 
 alias fehr='feh --reload 0.5'
@@ -106,4 +104,4 @@ if ! shopt -oq posix; then
   fi
 fi
 
-export PS1="\[\033[01m\]\u@\h:\w\[\033[00;00m\]\[\033[1m\]\$(git branch 2> /dev/null | sed -e '/^[^*]/d' -e 's/* \(.*\)/  \1/')\[\033[00m\]\[\033[01m\] >\[$(tput sgr0)\]\[\033[00m\] " 
+export PS1="\[\033[01m\]\u@\h:\w\[\033[00;00m\]\[\033[1m\]\$(git branch 2> /dev/null | sed -e '/^[^*]/d' -e 's/* \(.*\)/  \1/')\[\033[00m\]\[\033[01m\] >\[$(tput sgr0)\]\[\033[00m\] "

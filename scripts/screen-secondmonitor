@@ -7,4 +7,9 @@ if [ "$(echo $hdmi | wc -c)" -gt 1 ]; then
    xrandr --output eDP --auto --below $hdmi
 fi
 
+dp=$(xrandr |grep ' connected' |grep 'DisplayPort' |awk '{print $1}')
+if [ "$(echo $hdmi | wc -c)" -gt 1 ]; then
+   xrandr --output $dp --auto --left-of $hdmi
+fi
+
 wallpaper

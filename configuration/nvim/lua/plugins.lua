@@ -38,4 +38,8 @@ return require('packer').startup(function()
     use 'tpope/vim-fugitive'
     use 'editorconfig/editorconfig-vim'
     use 'gzagatti/vim-leuven-theme'
+    use 'relastle/bluewery.vim'
+    use 'NLKNguyen/papercolor-theme'
+    use 'arcticicestudio/nord-v'
+    use 'savq/melange'
   end)
