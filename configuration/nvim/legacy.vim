@@ -254,7 +254,7 @@ nnoremap <silent> ;f :Files<CR>
 nnoremap <silent> ;g :Rg<CR>
 
 " focus NERDTREE
-nnoremap <silent> ;N :NERDTreeFocus<CR>
+nnoremap <silent> ;n :NERDTreeFocus<CR>
 " -------------------------------------------------------
 " ------ COLORSCHEME ------------------------------------
 " -------------------------------------------------------
@@ -264,8 +264,11 @@ set termguicolors
 " let g:gruvbox_contrast_light='hard'
 " colorscheme gruvbox
 " hi LspCxxHlGroupMemberVariable guifg=#83a598
-"
+
+" color darcula
 colorscheme handmade
+" colorscheme solarized8
+" set background=light
 
 autocmd VimEnter * wincmd p
 

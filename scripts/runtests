@@ -1,16 +1,17 @@
 #!/bin/sh
+
 f=5
 while [ $f -gt 0 ]
 do
-   if [ -f "build.sh" ]; then
-      ./build.sh $*
+   if [ -f "test.sh" ]; then
+      ./test.sh $*
       f=-1
-   elif [ -f "scripts/build.sh" ]; then
+   elif [ -f "scripts/test.sh" ]; then
       cd scripts/
-      ./build.sh $*
+      ./test.sh $*
       f=-1
    elif [ -f "makefile" ]; then
-      make $*
+      make test $*
       f=-1
    else
       cd ../

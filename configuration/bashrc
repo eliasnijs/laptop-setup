@@ -1,12 +1,13 @@
 alias reloadbash='source ~/.bashrc'
 
+alias finder="xfe"
+
 alias l='ls -l'
 alias la='ls -a'
 alias dir='ls -l -p --group-directories-first'
 alias d='dir'
 
 alias g='goto'
-alias gh='cd $(gotoh | fzf)'
 
 alias cls='clear'
 alias c='cls'
@@ -20,16 +21,15 @@ alias show='cat --number'
 alias open='xdg-open'
 alias o='xdg-open'
 alias vim='nvim'
-alias vim='nvim'
 alias v='vim'
 alias e='v'
 
 alias b='build'
 alias r='run'
 alias br='b && r'
+alias t='runtests'
 
-alias t='show todo'
-alias s='grep -rn'
+alias seek='grep -rn'
 
 alias fehr='feh --reload 0.5'
 
