@@ -7,6 +7,9 @@ return require('packer').startup(function()
     use 'tomasiser/vim-code-dark'
     use 'lifepillar/vim-solarized8'
     use "nikolvs/vim-sunbather"
+    use "t184256/vim-boring"
+    use "jaredgorski/fogbell.vim"
+    use "stefanvanburen/rams.vim"
 
     use 'norcalli/nvim-colorizer.lua'
     use 'preservim/nerdtree'

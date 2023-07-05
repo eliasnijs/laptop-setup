@@ -269,6 +269,8 @@ set termguicolors
 colorscheme handmade
 " colorscheme solarized8
 " set background=light
+" color black-and-white
+" color pablo
 
 autocmd VimEnter * wincmd p
 
