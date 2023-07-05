@@ -1,0 +1,8 @@
+1. anyconnect
+2. musescore4
+3. neovim
+4. picom
+5. postman agent
+6. tiny-screenshot
+7. tiny-eyedropper
+8. dbeaver
