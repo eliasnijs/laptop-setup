@@ -1,0 +1,6 @@
+[submodule "tools/screenshot"]
+	path = tools/screenshot
+	url = git@github.com:eliasnijs/screenshot.git
+[submodule "tools/eyedropper"]
+	path = tools/eyedropper
+	url = git@github.com:eliasnijs/eyedropper-tool.git
