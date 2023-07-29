@@ -1,15 +1,4 @@
 #!/bin/sh
 
-hdmi=$(xrandr |grep ' connected' |grep 'HDMI' |awk '{print $1}')
-
-if [ "$(echo $hdmi | wc -c)" -gt 1 ]; then
-   xrandr --output $hdmi --auto
-   xrandr --output eDP --auto --below $hdmi
-fi
-
-dp=$(xrandr |grep ' connected' |grep 'DisplayPort' |awk '{print $1}')
-if [ "$(echo $hdmi | wc -c)" -gt 1 ]; then
-   xrandr --output $dp --auto --left-of $hdmi
-fi
-
+xrandr --output DP-1 --auto --above eDP-1 --output DP-2-8 --auto --left-of DP-1
 wallpaper
