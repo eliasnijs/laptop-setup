@@ -1,5 +1,6 @@
 #!/bin/sh
 
 res=$(xrandr | grep '*' | awk '{ print $1 }' | tail -n 1)
+echo $res
 ffmpeg -video_size $res -framerate 30 -f x11grab -i :0.0 output.mp4
 

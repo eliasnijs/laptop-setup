@@ -31,6 +31,7 @@ static const Rule rules[] = {
 	 *	*/
 	/* class      instance    title       tags mask     isfloating   monitor */
 	{ "dev0",      NULL,       NULL,       0,            1,           -1 },
+	{ "st",       NULL,       "volume-control",       0,            1,           -1 },
 	{ "feh",       NULL,       NULL,       0,            1,           -1 },
 	{ "mpv",       NULL,       NULL,       0,            1,           -1 },
 };
@@ -66,10 +67,12 @@ static const char *dmenucmd[]     = { "dmenu_run", "-m", dmenumon, "-fn", dmenuf
 static const char *termcmd[]      = { "st", NULL };
 static const char *screenshot[]   = { "screenshot" , NULL };
 static const char *transparant[]  = { "transparant", NULL };
+static const char *volumecontrol[]   = { "st", "-g", "15x30" ,"-t", "volume-control", "-e", "alsamixer" , NULL };
 
 static Key keys[] = {
 	/* modifier                     key        function        argument */
 	{ MODKEY|ShiftMask,             XK_s,      spawn,          {.v = screenshot   } },
+	{ MODKEY,                       XK_v,      spawn,          {.v = volumecontrol } },
 	{ MODKEY|ShiftMask,             XK_t,      spawn,          {.v = transparant  } },
 	{ MODKEY,                       XK_p,      spawn,          {.v = dmenucmd     } },
 	{ MODKEY|ShiftMask,             XK_Return, spawn,          {.v = termcmd      } },
