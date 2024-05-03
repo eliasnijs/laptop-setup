@@ -8,9 +8,3 @@ laptop setup
 
 2. TODOs
 - bugfix: stockscripts are broken
-- build new sound scripts
-- build a new brightness script
-- expand weather script with fetch location
-- expand alarm script with default alarm tone
-- expand todofinder to be able to find any word given
-- create dependency list per program/script
