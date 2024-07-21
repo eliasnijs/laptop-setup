@@ -1,0 +1,132 @@
+set nocompatible
+
+" -------------------------------------------------------
+" ------- PLUGINS ---------------------------------------
+" -------------------------------------------------------
+let g:ale_disable_lsp = 1
+call plug#begin()
+" functionality
+Plug 'vim-airline/vim-airline'
+Plug 'tomtom/tcomment_vim'
+Plug 'junegunn/fzf'
+Plug 'tpope/vim-obsession'
+Plug 'junegunn/goyo.vim'
+Plug 'preservim/nerdtree'
+" colorschemes
+Plug 'tomasiser/vim-code-dark'
+Plug 'stefanvanburen/rams.vim'
+Plug 'morhetz/gruvbox'
+Plug 'doums/darcula'
+Plug 'CreaturePhil/vim-handmade-hero'
+call plug#end()
+
+set termguicolors
+lua require'colorizer'.setup()
+
+let g:ackprg = 'grep -rn'
+
+" -------------------------------------------------------
+" ------ CONFIG -----------------------------------------
+" -------------------------------------------------------
+" general
+let g:indent_guides_guide_size = 1
+let g:indent_guides_color_change_percent = 3
+let g:indent_guides_enable_on_vim_startup = 1
+
+set termguicolors
+set autoindent
+set smartindent
+set expandtab
+set tabstop=2
+set shiftwidth=2
+set softtabstop=2
+set cursorline
+set number
+set relativenumber
+set nowrap
+set mouse=v
+set hlsearch
+set showmatch
+set splitbelow
+set splitright
+
+let g:netrw_liststyle = 3
+let g:netrw_banner = 0
+
+" let &t_8f = "\<Esc>[38;2;%lu;%lu;%lum"
+" let &t_8b = "\<Esc>[48;2;%lu;%lu;%lum"
+
+syntax off
+
+" -------------------------------------------------------
+" ------ KEYBOARD ---------------------------------------
+" -------------------------------------------------------
+" directory
+nnoremap md :e .<cr>
+nnoremap mf :FZF<CR>
+
+" building and saving
+nnoremap mm :w<CR>:!build<CR>
+nnoremap mr :w<Cr>:!run<CR>
+
+" windows
+nnoremap mwg :Goyo<CR>
+nnoremap mwv :vertical resize
+nnoremap mwh :resize
+
+" term
+nnoremap mt :!
+
+" seek
+nnoremap msc /expand("<cword>")<CR>
+
+nnoremap msa :!grep -rn
+nnoremap msf /^[^ ]*(<CR>
+nnoremap mss /^struct [^ \n]*<CR>
+
+" customization
+" nnoremap mb :let &bg=(&bg=='light'?'dark':'light')<CR> :let g:airline_theme=(&bg=='light'?'base16_solarized_light':'base16_solarized_dark')<CR>
+
+nnoremap m/ :nohlsearch<CR>
+
+tnoremap <ESC> <C-\><C-N>
+
+" -------------------------------------------------------
+" ------ EXTRA SYNTAX -----------------------------------
+" -------------------------------------------------------
+function! UpdateTodoKeywords(...)
+	let newKeywords = join(a:000, " ")
+	let synTodo = map(filter(split(execute("syntax list"), '\n') , { i,v -> match(v, '^\w*Todo\>') == 0}), {i,v -> substitute(v, ' .*$', '', '')})
+	for synGrp in synTodo
+		execute "syntax keyword " . synGrp . " contained " . newKeywords
+	endfor
+endfunction
+
+augroup now
+	autocmd!
+	autocmd Syntax * call UpdateTodoKeywords("NOTE", "NOTES", "IMPORTANT", "DOCUMENTATION", "QUESTION", "POSSIBLE BUG")
+augroup END
+
+" -------------------------------------------------------
+" ------ COLORSCHEME ------------------------------------
+" -------------------------------------------------------
+" let darkmode=system('darkmode get')
+" let &bg=(darkmode=~0?'light':'dark')
+" colorscheme solarized8
+" let g:airline_theme=(&bg=='light'?'base16_solarized_light':'base16_solarized_dark')
+
+" syntax off
+" set nocursorline
+" colorscheme default
+
+syntax on
+colorscheme handmade
+set nocursorline
+
+" set termguicolors
+" syntax on
+" let g:gruvbox_contrast_dark='medium'
+" let g:gruvbox_contrast_light='hard'
+" set background=light
+" colorscheme gruvbox
+

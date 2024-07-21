@@ -196,6 +196,11 @@ augroup END
 " ------ KEYBOARD ---------------------------------------
 " -------------------------------------------------------
 
+" copilot
+nnoremap ;me :Copilot enable<CR>
+nnoremap ;md :Copilot disable<CR>
+nnoremap ;mp :Copilot panel<CR>
+
 " building and saving
 noremap <silent> ;w :update<CR>
 nnoremap mm :w<CR>:!build<CR>
@@ -265,13 +270,27 @@ set termguicolors
 " colorscheme gruvbox
 " hi LspCxxHlGroupMemberVariable guifg=#83a598
 
+" color rose-pine
 " color darcula
-colorscheme handmade
+" colorscheme handmade
 " colorscheme solarized8
 " set background=light
 " color black-and-white
 " color pablo
+" color darkblue
+" colorscheme twilight
+colorscheme desert
 
 autocmd VimEnter * wincmd p
+
+
+
+
+
+
+
+
+
+
 
 

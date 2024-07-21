@@ -1,13 +1,11 @@
 alias reloadbash='source ~/.bashrc'
 
-alias finder="xfe"
+alias finder="nautilus"
 
 alias l='ls -l'
 alias la='ls -a'
-alias dir='ls -l -p --group-directories-first'
+alias dir='ls -l -p -h --group-directories-first'
 alias d='dir'
-
-alias g='goto'
 
 alias cls='clear'
 alias c='cls'
@@ -35,7 +33,16 @@ alias fehr='feh --reload 0.5'
 
 alias line="echo ────────────────────────────────────────────────────────────────────────────────────────"
 
+export EDITOR=nvim
+export ANDROID_HOME=~/.Android/Sdk
 export _JAVA_AWT_WM_NONREPARENTING=1
+
+export PATH=$PATH:~/.local/bin
+export PATH=$PATH:/usr/local/go/bin
+export PATH=$PATH:/home/eliasnijs/Programs/emsdk:/home/eliasnijs/Programs/emsdk/upstream/emscripten
+
+export EMSDK='/home/eliasnijs/Programs/emsdk'
+export EMSDK_NODE='/home/eliasnijs/Programs/emsdk/node/16.20.0_64bit/bin/node'
 
 case $- in
     *i*) ;;
@@ -105,3 +112,18 @@ if ! shopt -oq posix; then
 fi
 
 export PS1="\[\033[01m\]\u@\h:\w\[\033[00;00m\]\[\033[1m\]\$(git branch 2> /dev/null | sed -e '/^[^*]/d' -e 's/* \(.*\)/  \1/')\[\033[00m\]\[\033[01m\] >\[$(tput sgr0)\]\[\033[00m\] "
+
+# >>> juliaup initialize >>>
+
+# !! Contents within this block are managed by juliaup !!
+
+case ":$PATH:" in
+    *:/home/eliasnijs/.juliaup/bin:*)
+        ;;
+
+    *)
+        export PATH=/home/eliasnijs/.juliaup/bin${PATH:+:${PATH}}
+        ;;
+esac
+
+# <<< juliaup initialize <<<
