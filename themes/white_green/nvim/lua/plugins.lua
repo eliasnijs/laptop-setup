@@ -1,6 +1,7 @@
 
 return require('packer').startup(function()
     use 'wbthomason/packer.nvim'
+    use 'nvim-lua/plenary.nvim'
 
     use 'mbbill/desertEx'
     use 'rose-pine/neovim'
@@ -47,3 +48,4 @@ return require('packer').startup(function()
     use 'NLKNguyen/papercolor-theme'
     use 'savq/melange'
   end)
+

@@ -23,3 +23,12 @@ require('colorizer').setup()
 
 -- autopairs
 require('nvim-autopairs').setup {}
+
+-- llms
+local llm = require('llms')
+vim.keymap.set('v', ';l',  function() llm.claude_replace() end, { noremap = true, silent = true })
+vim.api.nvim_create_user_command("ClaudeReplace", function() llm.claude_replace() end, {})
+vim.api.nvim_create_user_command("ClaudeSetExtra", function(opts) llm.set_extra_message(opts.args) end, { nargs = '+' })
+
+
+

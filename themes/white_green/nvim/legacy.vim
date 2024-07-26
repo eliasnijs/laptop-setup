@@ -202,18 +202,22 @@ nnoremap ;md :Copilot disable<CR>
 nnoremap ;mp :Copilot panel<CR>
 
 " building and saving
-noremap <silent> ;w :update<CR>
+
 nnoremap mm :w<CR>:!build<CR>
 nnoremap mr :w<Cr>:!run<CR>
 
 " opening
-xnoremap ;r y:!xdg-open "<C-r>"" > /dev/null 2>&1 &<CR><CR>
+xnoremap ;e y:e %:p:h/<C-r>" <CR>
+xnoremap ;f y:!xdg-open "%:p:h/<C-r>"" > /dev/null 2>&1 &<CR><CR>
+xnoremap ;d y:!xdg-open %:p:h <CR>
+xnoremap ;p y:!screenshot "%:p:h/<C-r>"" <CR>
+xnoremap ;w y:!xdg-open "<C-r>"" > /dev/null 2>&1 &<CR><CR>
 
 " directory
 nnoremap ;d :e .<cr>
 
 " term
-nnoremap ;t :term<cr>i
+nnoremap ;t :sp<cr>:term<cr>i
 
 " windows
 nnoremap ;b :let &bg=(&bg=='light'?'dark':'light')<CR>
@@ -221,12 +225,6 @@ nnoremap ;b :let &bg=(&bg=='light'?'dark':'light')<CR>
 " editing text
 xnoremap ;s y:%s/<C-r>"//g<Left><Left>
 xnoremap ;ls y:.s/<C-r>"//g<Left><Left>
-
-" searching
-xnoremap ;f /^[^ ]*(
-
-";f formats in normal mode
-" noremap <silent> ;f gg=G``:w<CR>
 
 " alt-a as esc-a for select
 nmap <esc>a <a-a>
