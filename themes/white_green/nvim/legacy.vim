@@ -208,10 +208,10 @@ nnoremap mr :w<Cr>:!run<CR>
 
 " opening
 xnoremap ;e y:e %:p:h/<C-r>" <CR>
-xnoremap ;f y:!xdg-open "%:p:h/<C-r>"" > /dev/null 2>&1 &<CR><CR>
-xnoremap ;d y:!xdg-open %:p:h <CR>
+xnoremap ;d y:!xdg-open %:p:h & <CR>
 xnoremap ;p y:!screenshot "%:p:h/<C-r>"" <CR>
-xnoremap ;w y:!xdg-open "<C-r>"" > /dev/null 2>&1 &<CR><CR>
+xnoremap ;r y:!cd %:p:h && <C-r>" <CR>
+" xnoremap ;f opens file -- see init.lua
 
 " directory
 nnoremap ;d :e .<cr>

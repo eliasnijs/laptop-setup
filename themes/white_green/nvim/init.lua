@@ -30,5 +30,7 @@ vim.keymap.set('v', ';l',  function() llm.claude_replace() end, { noremap = true
 vim.api.nvim_create_user_command("ClaudeReplace", function() llm.claude_replace() end, {})
 vim.api.nvim_create_user_command("ClaudeSetExtra", function(opts) llm.set_extra_message(opts.args) end, { nargs = '+' })
 
-
+-- link
+local links = require('links')
+vim.keymap.set('v', ';f', function() links.open_file_or_url() end, { noremap = true })
 
