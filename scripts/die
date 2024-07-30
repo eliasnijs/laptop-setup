@@ -4,5 +4,4 @@ cd $(dirname $(readlink -f $0))
 path_config="./.config"
 path_storage="./.storage"
 
-echo "\"$(date +"%F %T")\",OFF" >> "$path_storage/logtimes"
 shutdown 0

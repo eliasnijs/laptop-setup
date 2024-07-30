@@ -1,0 +1,4 @@
+#!/bin/sh
+
+st -g 87x60 -t notebook -e sh -c "cd ~/Notebook/ && nvim index.txt"
+
