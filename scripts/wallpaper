@@ -1,8 +1,9 @@
 #!/bin/bash
 
 current_loc=$(pwd)
-wallpaperfolder="/home/eliasnijs/System/configuration/wallpapers/"
-wallpaper_loc="/home/eliasnijs/System/configuration/wallpapers/wallpaper.png"
+
+wallpaperfolder="$(dirname $(readlink -f $0))/../configuration/wallpapers/"
+wallpaper_loc="$(dirname $(readlink -f $0))/../configuration/wallpapers/wallpaper.png"
 
 add=0
 file=""

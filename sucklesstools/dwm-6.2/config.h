@@ -7,7 +7,11 @@ static const unsigned int gappx     = WM_GAP_WIDTH;
 static const unsigned int snap      = WM_SNAP;
 static const int showbar            = WM_SHOWBAR;
 static const int topbar             = WM_TOPBAR;
-static const char *fonts[]          = { WM_FONT };
+// add noto emoji
+static const char *fonts[]          = {
+	WM_FONT,
+	"Noto Color Emoji:size=10:autohint=true:antialias=true"
+};
 
 static const char *colors[][3]      = {
 	[SchemeNorm] = { WM_COL_NORM_FG, WM_COL_NORM_BG, WM_COL_NORM_BORDER },

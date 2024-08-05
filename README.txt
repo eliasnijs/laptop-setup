@@ -16,7 +16,6 @@ Repository containing all the files related to my laptop setup
 2. Tasks
 - docs:   setup documentation for which tools, programs, configuration options
 	  are available
-- bugfix: stockscripts are broken
 - feat:	  add API-KEY support
 - feat:   integrate llms w/ vim (requires API-KEY support)
 

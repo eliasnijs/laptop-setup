@@ -23,11 +23,13 @@
 #define WM_COL_DMENU_NF  	"#000000"   /* dmenu normal foreground color */
 #define WM_COL_DMENU_SB  	"#9CEFEF"   /* dmenu selected background color */
 #define WM_COL_DMENU_SF  	"#000000"   /* dmenu selected foreground color */
+#define WM_COL_DMENU_OB		"#5CAFAF"   /* dmenu already selected background color */
+#define WM_COL_DMENU_OF		"#000000"   /* dmenu already selected foreground color */
 
 ////////////////////////////////////////////////////////////////////////////////
 //// terminal appearance
 
-#define THEME_TERM_FONT "Cascadia Mono:size=14:antialias=true:autohint=true"
+#define THEME_TERM_FONT "Cascadia Mono:pixelsize=14:antialias=true:autohint=true"
 
 /*	colors are defined as an array of strings, each string is a color in
 	hexadecimal format. They are defined in the following order:
