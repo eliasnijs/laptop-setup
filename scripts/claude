@@ -1,0 +1,7 @@
+#!/bin/sh
+
+
+
+file="~/.claude/$(date +%Y-%m-%d-%H-%M-%S).txt"
+st -g 90x60+20+30 -t "claude" -e sh -c "touch $file && nvim $file"
+

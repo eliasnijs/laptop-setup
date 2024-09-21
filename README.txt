@@ -18,4 +18,6 @@ Repository containing all the files related to my laptop setup
 	  are available
 - feat:	  add API-KEY support
 - feat:   integrate llms w/ vim (requires API-KEY support)
+- feat:   add mathsymbols selection from dmenu
+- feat:   add ascii symbols to emoji-copy and rename to symbol copy
 

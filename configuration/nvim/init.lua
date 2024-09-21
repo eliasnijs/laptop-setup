@@ -26,9 +26,11 @@ require('nvim-autopairs').setup {}
 
 -- llms
 local llm = require('llms')
-vim.keymap.set('v', ';l',  function() llm.claude_replace() end, { noremap = true, silent = true })
+vim.keymap.set('v', ';l',  function() llm.claude_replace(llm.extra_message_code) end, { noremap = true, silent = true })
+vim.keymap.set('v', ';L',  function() llm.claude_replace(llm.extra_message_text) end, { noremap = true, silent = true })
 vim.api.nvim_create_user_command("ClaudeReplace", function() llm.claude_replace() end, {})
-vim.api.nvim_create_user_command("ClaudeSetExtra", function(opts) llm.set_extra_message(opts.args) end, { nargs = '+' })
+vim.api.nvim_create_user_command("ClaudeSetExtraCode", function(opts) llm.set_extra_message_code(opts.args) end, { nargs = '+' })
+vim.api.nvim_create_user_command("ClaudeSetExtraText", function(opts) llm.set_extra_message_text(opts.args) end, { nargs = '+' })
 
 -- link
 local links = require('links')

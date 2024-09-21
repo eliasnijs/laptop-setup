@@ -478,21 +478,10 @@
 ⤵️ arrow_heading_down
 🌘 waning_crescent_moon
 ↕ arrow_up_down
-🇪 "name": "", "shortname": "", "unicode": "", "html": "&#127466;", "category": "", "order": ""},
 🌗 last_quarter_moon
 🔘 radio_button
 🐑 sheep
-_blond_hair
-_blond_hair
-_blond_hair
-_blond_hair
-_blond_hair
 👱‍♀ blond_hair
-_blond_hair
-_blond_hair
-_blond_hair
-_blond_hair
-_blond_hair
 👱 person_with_blond_hair
 🌖 waning_gibbous_moon
 🔒 lock
@@ -704,7 +693,6 @@ _blond_hair
 🕛 clock12
 📶 signal_strength
 🚧 construction
-# "name": "", "shortname": "", "unicode": "", "html": "&#35;", "category": "", "order": ""},
 ◼ black_medium_square
 📡 satellite
 💶 euro
@@ -917,7 +905,6 @@ _blond_hair
 🕴 man_in_suit
 🏌 golfer
 🏌‍♀ golfer_woman
-*️⃣ "name": "keycap: #", "shortname": "*", "unicode": "0023 FE0F 20E3", "html": "&#42;", "category": "Symbols (keycap)", "order": "2118"},
 ❣️ heart_exclamation
 ✡️ star_of_david
 ✝️ cross
@@ -1429,101 +1416,21 @@ _blond_hair
 🧒 child
 🧑 person
 🧔 beard
-_beard
-_beard
-_beard
-_beard
-_beard
 👨‍🦰 red_hair
-_red_hair
-_red_hair
-_red_hair
-_red_hair
-_red_hair
 👨‍🦱 curly_hair
-_curly_hair
-_curly_hair
-_curly_hair
-_curly_hair
-_curly_hair
 👨‍🦳 white_hair
-_white_hair
-_white_hair
-_white_hair
-_white_hair
-_white_hair
 👨‍🦲 bald
-_bald
-_bald
-_bald
-_bald
-_bald
 👩‍🦰 red_hair
-_red_hair
-_red_hair
-_red_hair
-_red_hair
-_red_hair
 🧑‍🦰 red_hair
-_red_hair
-_red_hair
-_red_hair
-_red_hair
-_red_hair
 👩‍🦱 curly_hair
-_curly_hair
-_curly_hair
-_curly_hair
-_curly_hair
-_curly_hair
 🧑‍🦱 curly_hair
-_curly_hair
-_curly_hair
-_curly_hair
-_curly_hair
-_curly_hair
 👩‍🦳 white_hair
-_white_hair
-_white_hair
-_white_hair
-_white_hair
-_white_hair
 🧑‍🦳 white_hair
-_white_hair
-_white_hair
-_white_hair
-_white_hair
-_white_hair
 👩‍🦲 bald
-_bald
-_bald
-_bald
-_bald
-_bald
 🧑‍🦲 bald
-_bald
-_bald
-_bald
-_bald
-_bald
 👱‍♀️ blond_hair
-_blond_hair
-_blond_hair
-_blond_hair
-_blond_hair
-_blond_hair
 👱‍♂️ blond_hair
 👱‍♂ blond_hair
-_blond_hair
-_blond_hair
-_blond_hair
-_blond_hair
-_blond_hair
-_blond_hair
-_blond_hair
-_blond_hair
-_blond_hair
-_blond_hair
 🧓 older_person
 🙍‍♂️ man_frowning
 🙍‍♀️ woman_frowning

@@ -31,7 +31,7 @@ static const Rule rules[] = {
 	/* class      instance    title		        tags mask       isfloating      monitor */
 	{ "dev0",      NULL,       NULL,		0,		1,		-1 },
 	{ "st",        NULL,       "volumectl",		0,		1,		-1 },
-	{ "st",        NULL,       "notebook",		0,		1,		-1 },
+	{ "st",        NULL,       "claude",		0,		1,		-1 },
 	{ "feh",       NULL,       NULL,		0,		1,		-1 },
 	{ "mpv",       NULL,       NULL,		0,		1,		-1 },
 };
@@ -68,13 +68,13 @@ static const char *transparant[]	= { "transparant", NULL };
 static const char *termcmd[]		= { "st", "-T", "terminal", NULL };
 static const char *screenshot[]		= { "screenshot" , NULL };
 static const char *volumectl[]		= { "st", "-g", "15x30", "-t", "volumectl",    "-e", "alsamixer" , NULL };
-static const char *notebook[]		= { "notebook", NULL };
+static const char *claude[]		= { "claude", NULL };
 
 static Key keys[] = {
 	/* modifier                     key		function        argument */
 	{ MODKEY|ShiftMask,             XK_s,		spawn,          {.v = screenshot	} },
 	{ MODKEY,                       XK_v,      	spawn,          {.v = volumectl		} },
-	{ MODKEY,                       XK_n,		spawn,          {.v = notebook		} },
+	{ MODKEY,                       XK_c,		spawn,          {.v = claude		} },
 	{ MODKEY|ShiftMask,             XK_t,      	spawn,          {.v = transparant	} },
 	{ MODKEY,                       XK_p,      	spawn,          {.v = dmenucmd     	} },
 	{ MODKEY|ShiftMask,             XK_Return, 	spawn,          {.v = termcmd      	} },

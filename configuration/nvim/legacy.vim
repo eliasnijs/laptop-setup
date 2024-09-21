@@ -280,7 +280,8 @@ set termguicolors
 " color pablo
 " color darkblue
 " colorscheme twilight
-colorscheme desert
+colorscheme black-and-white
+" colorscheme gruvbox
 
 autocmd VimEnter * wincmd p
 

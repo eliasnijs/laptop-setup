@@ -14,7 +14,7 @@ return require('packer').startup(function()
     use "jaredgorski/fogbell.vim"
     use "stefanvanburen/rams.vim"
 
-    use 'github/copilot.vim'
+    -- use 'github/copilot.vim'
     use 'norcalli/nvim-colorizer.lua'
     use 'preservim/nerdtree'
     use 'neovimhaskell/haskell-vim'

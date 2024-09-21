@@ -39,7 +39,8 @@ export _JAVA_AWT_WM_NONREPARENTING=1
 
 export PATH=$PATH:~/.local/bin
 export PATH=$PATH:/usr/local/go/bin
-export PATH=$PATH:/home/eliasnijs/Programs/emsdk:/home/eliasnijs/Programs/emsdk/upstream/emscripten
+export PATH=$PATH:~/Programs/emsdk:/home/eliasnijs/Programs/emsdk/upstream/emscripten
+export PATH=$PATH:~/.cargo/bin
 
 export EMSDK='/home/eliasnijs/Programs/emsdk'
 export EMSDK_NODE='/home/eliasnijs/Programs/emsdk/node/16.20.0_64bit/bin/node'

@@ -21,10 +21,10 @@
 
 #define WM_COL_DMENU_NB  	"#000000"   /* dmenu normal background color */
 #define WM_COL_DMENU_NF  	"#bbbbbb"   /* dmenu normal foreground color */
-#define WM_COL_DMENU_SB  	"#000000"   /* dmenu selected background color */
-#define WM_COL_DMENU_SF  	"#04ffff"   /* dmenu selected foreground color */
-#define WM_COL_DMENU_OB		"#000000"   /* dmenu already selected background color */
-#define WM_COL_DMENU_OF		"#04bbbb"   /* dmenu already selected foreground color */
+#define WM_COL_DMENU_SB  	"#04ffff"   /* dmenu selected foreground color */
+#define WM_COL_DMENU_SF  	"#000000"   /* dmenu selected background color */
+#define WM_COL_DMENU_OB		"#04bbbb"   /* dmenu already selected foreground color */
+#define WM_COL_DMENU_OF		"#000000"   /* dmenu already selected background color */
 
 ////////////////////////////////////////////////////////////////////////////////
 //// terminal appearance

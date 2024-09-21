@@ -436,6 +436,8 @@ buttonpress(XEvent *e)
 	}
 	if (ev->window == selmon->barwin) {
 		i = x = 0;
+    unsigned int eliasosw = TEXTW("☄ EliasOS  ");
+    x += eliasosw;
 		do
 			x += TEXTW(tags[i]);
 		while (ev->x >= x && ++i < LENGTH(tags));
@@ -720,6 +722,12 @@ drawbar(Monitor *m)
 			urg |= c->tags;
 	}
 	x = 0;
+
+  w = TEXTW("☄ EliasOS  ");
+  drw_setscheme(drw, scheme[SchemeNorm]);
+  drw_text(drw, x, 0, w, bh, lrpad / 2, "☄ EliasOS  ", 0);
+  x += w;
+
 	for (i = 0; i < LENGTH(tags); i++) {
 		w = TEXTW(tags[i]);
 		drw_setscheme(drw, scheme[m->tagset[m->seltags] & 1 << i ? SchemeSel : SchemeNorm]);
