@@ -28,12 +28,14 @@ static const Rule rules[] = {
 	 *	WM_CLASS(STRING) = instance, class
 	 *	WM_NAME(STRING) = title
 	 *	*/
-	/* class      instance    title		        tags mask       isfloating      monitor */
-	{ "dev0",      NULL,       NULL,		0,		1,		-1 },
-	{ "st",        NULL,       "volumectl",		0,		1,		-1 },
-	{ "st",        NULL,       "claude",		0,		1,		-1 },
-	{ "feh",       NULL,       NULL,		0,		1,		-1 },
-	{ "mpv",       NULL,       NULL,		0,		1,		-1 },
+	/* class		instance    title		tags mask       isfloating      monitor */
+	{ "dev0",      		NULL,       NULL,		0,		1,		-1 },
+	{ "st",        		NULL,       "volumectl",	0,		1,		-1 },
+	{ "st",        		NULL,       "claude",		0,		1,		-1 },
+	{ "feh",       		NULL,       NULL,		0,		1,		-1 },
+	{ "mpv",       		NULL,       NULL,		0,		1,		-1 },
+	{ "org.gnome.Nautilus", NULL,       NULL,		0,		1,		-1 },
+	{ "finder",		NULL,       NULL,		0,		1,		-1 },
 };
 
 /* layout(s) */
@@ -69,6 +71,7 @@ static const char *termcmd[]		= { "st", "-T", "terminal", NULL };
 static const char *screenshot[]		= { "screenshot" , NULL };
 static const char *volumectl[]		= { "st", "-g", "15x30", "-t", "volumectl",    "-e", "alsamixer" , NULL };
 static const char *claude[]		= { "claude", NULL };
+static const char *nautilus[]		= { "nautilus", NULL };
 
 static Key keys[] = {
 	/* modifier                     key		function        argument */
@@ -78,6 +81,7 @@ static Key keys[] = {
 	{ MODKEY|ShiftMask,             XK_t,      	spawn,          {.v = transparant	} },
 	{ MODKEY,                       XK_p,      	spawn,          {.v = dmenucmd     	} },
 	{ MODKEY|ShiftMask,             XK_Return, 	spawn,          {.v = termcmd      	} },
+	{ MODKEY|ShiftMask,             XK_f,		spawn,          {.v = nautilus      	} },
 	{ MODKEY,                       XK_b,      	togglebar,      {0} },
 	{ MODKEY,                       XK_j,      	focusstack,     {.i = +1 } },
 	{ MODKEY,                       XK_k,		focusstack,     {.i = -1 } },

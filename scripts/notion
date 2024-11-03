@@ -1,0 +1,4 @@
+#!/bin/sh
+
+brave-browser --app="https://www.notion.so/eliasnijs-notes"
+

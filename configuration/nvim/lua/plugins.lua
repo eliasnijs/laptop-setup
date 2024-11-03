@@ -3,6 +3,7 @@ return require('packer').startup(function()
     use 'wbthomason/packer.nvim'
     use 'nvim-lua/plenary.nvim'
 
+    use 'gwh-dev/concoctis.nvim'
     use 'mbbill/desertEx'
     use 'rose-pine/neovim'
     use 'morhetz/gruvbox'
