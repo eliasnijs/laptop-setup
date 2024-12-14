@@ -6,31 +6,24 @@ alias l='ls -l'
 alias la='ls -a'
 alias dir='ls -l -p -h --group-directories-first'
 alias d='dir'
-
 alias cls='clear'
 alias c='cls'
-
+alias nav='cd $(dirpath)'
 alias he='history | cut -c 8- | fzf'
 alias h='eval $(history | cut -c 8- | fzf)'
-
 alias shutdown='die'
-
 alias show='cat --number'
 alias open='xdg-open'
 alias o='xdg-open'
 alias vim='nvim'
 alias v='vim'
 alias e='v'
-
 alias b='build'
 alias r='run'
 alias br='b && r'
 alias t='runtests'
-
 alias seek='grep -rn'
-
 alias fehr='feh --reload 0.5'
-
 alias line="echo ────────────────────────────────────────────────────────────────────────────────────────"
 
 export EDITOR=nvim
@@ -115,7 +108,7 @@ if ! shopt -oq posix; then
   fi
 fi
 
-export PS1="\[\033[01m\]\u@\h:\w\[\033[00;00m\]\[\033[1m\]\$(git branch 2> /dev/null | sed -e '/^[^*]/d' -e 's/* \(.*\)/  \1/')\[\033[00m\]\[\033[01m\] >\[$(tput sgr0)\]\[\033[00m\] "
+export PS1="\[\033[01m\]\u@\h:\w\[\033[00;00m\]\[\033[1m\]:\$(git branch 2> /dev/null | sed -e '/^[^*]/d' -e 's/* \(.*\)/\1:/')\[\033[00m\]\[\033[01m\]λ>\[$(tput sgr0)\]\[\033[00m\] "
 
 # >>> juliaup initialize >>>
 

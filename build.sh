@@ -63,10 +63,10 @@ update_suckless_tool()
 }
 
 echo "[build]# updating system software..."
-update_suckless_tool "window-manager (dwm6.2)"  "./configuration/dwm6.2-config.h" 	"./sucklesstools/dwm-6.2/config.h"
 update_suckless_tool "terminal (st)"            "./configuration/st-config.h" 	     	"./sucklesstools/st/config.h"
 update_suckless_tool "status-bar (slstatus)"    "./configuration/slstatus-config.h" 	"./sucklesstools/slstatus/config.h"
 update_suckless_tool "system-interface (dmenu)" "./configuration/dmenu-config.h"    	"./sucklesstools/dmenu/config.h"
+update_suckless_tool "window-manager (dwm6.2)"  "./configuration/dwm6.2-config.h" 	"./sucklesstools/dwm-6.2/config.h"
 
 cd scripts
 sudo ./setup 2> /dev/null

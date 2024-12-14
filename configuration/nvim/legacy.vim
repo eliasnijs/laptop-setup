@@ -273,7 +273,7 @@ set termguicolors
 
 " color rose-pine
 " color darcula
-colorscheme handmade
+" colorscheme handmade
 " colorscheme solarized8
 " set background=light
 " color black-and-white
@@ -283,6 +283,8 @@ colorscheme handmade
 " colorscheme black-and-white
 " colorscheme gruvbox
 " color concoctis
+" color codedark
+color desert
 
 autocmd VimEnter * wincmd p
 

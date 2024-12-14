@@ -2,18 +2,21 @@
 f=3
 while [ $f -gt 0 ]
 do
-  if [ -f "./run.sh" ]; then
-    ./run.sh $*
-    f=0
-   elif [ -f "scripts/run.sh" ]; then
-      cd scripts/
-      ./run.sh $*
-      f=-1
-   elif [ -f "./makefile" ]; then
-      make run $*
-      f=0
-   else
-    cd ../
-    f=$(echo "$f-1" | bc)
-   fi
+	if [ -f "./run.sh" ]; then
+		./run.sh $*
+		f=0
+	elif [ -f "./run.py" ]; then
+		./run.py $*
+		f=0
+	elif [ -f "scripts/run.sh" ]; then
+		cd scripts/
+		./run.sh $*
+		f=-1
+	elif [ -f "./makefile" ]; then
+		make run $*
+		f=0
+	else
+		cd ../
+		f=$(echo "$f-1" | bc)
+	fi
 done

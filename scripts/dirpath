@@ -1,0 +1,8 @@
+#!/bin/sh
+
+dir=$(find ~ -maxdepth 3 -type d -not -path '*/\.*' | fzf --preview 'tree -C -I ".*" {} | head -200')
+if [ -n "$dir" ]; then
+    echo "$dir"
+fi
+
+
