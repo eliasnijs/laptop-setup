@@ -275,7 +275,6 @@ set termguicolors
 " color darcula
 " colorscheme handmade
 " colorscheme solarized8
-" set background=light
 " color black-and-white
 " color pablo
 " color darkblue

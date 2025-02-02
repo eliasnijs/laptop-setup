@@ -3,6 +3,11 @@ return require('packer').startup(function()
     use 'wbthomason/packer.nvim'
     use 'nvim-lua/plenary.nvim'
 
+    use "daschw/leaf.nvim"
+    use "racagogi/mytilus"
+    use "holidaycereal/alena.nvim"
+    use "holidaycereal/notation.nvim"
+    use "gmr458/cold.nvim"
     use 'gwh-dev/concoctis.nvim'
     use 'mbbill/desertEx'
     use 'rose-pine/neovim'

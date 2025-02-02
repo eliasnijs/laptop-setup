@@ -5,7 +5,7 @@
 
 #define WM_FONT			"Cascadia Mono:size=10:antialias=true:autohint=true"
 
-#define WM_BORDER_WIDTH		1 	/* border pixel of windows */
+#define WM_BORDER_WIDTH		2 	/* border pixel of windows */
 #define WM_GAP_WIDTH		0       /* gaps between windows */
 #define WM_SNAP			16      /* snap pixel */
 #define WM_SHOWBAR		1       /* 0 means no bar */
