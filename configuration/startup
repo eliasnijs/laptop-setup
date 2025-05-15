@@ -11,6 +11,6 @@ wallpaper
 
 setxkbmap -option caps:swapescape
 
-transparant
+#transparant
 
 nightlight

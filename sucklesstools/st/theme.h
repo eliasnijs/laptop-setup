@@ -5,7 +5,7 @@
 
 #define WM_FONT			"Cascadia Mono:size=10:antialias=true:autohint=true"
 
-#define WM_BORDER_WIDTH		2 	/* border pixel of windows */
+#define WM_BORDER_WIDTH		3 	/* border pixel of windows */
 #define WM_GAP_WIDTH		0       /* gaps between windows */
 #define WM_SNAP			16      /* snap pixel */
 #define WM_SHOWBAR		1       /* 0 means no bar */
@@ -13,18 +13,18 @@
 
 #define WM_COL_NORM_FG		"#bbbbbb"   /* non selected workspace foreground color */
 #define WM_COL_NORM_BG		"#000000"   /* non selected workspace background color */
-#define WM_COL_SEL_FG		"#40FF40"   /* selected workspace foreground color */
+#define WM_COL_SEL_FG		"#04ffff"   /* selected workspace foreground color */
 #define WM_COL_SEL_BG		"#000000"   /* selected workspace background color */
 
 #define WM_COL_NORM_BORDER  	"#444444"   /* non selected window border color */
-#define WM_COL_SEL_BORDER  	"#40FF40"   /* selected window border color */
+#define WM_COL_SEL_BORDER  	"#04ffff"   /* selected window border color */
 
 #define WM_COL_DMENU_NB  	"#000000"   /* dmenu normal background color */
 #define WM_COL_DMENU_NF  	"#bbbbbb"   /* dmenu normal foreground color */
-#define WM_COL_DMENU_SB  	"#40FF40"   /* dmenu selected background color */
-#define WM_COL_DMENU_SF  	"#000000"   /* dmenu selected foreground color */
-#define WM_COL_DMENU_OB		"#40CC40"   /* dmenu already selected background color */
-#define WM_COL_DMENU_OF		"#000000"   /* dmenu already selected foreground color */
+#define WM_COL_DMENU_SB  	"#04ffff"   /* dmenu selected foreground color */
+#define WM_COL_DMENU_SF  	"#000000"   /* dmenu selected background color */
+#define WM_COL_DMENU_OB		"#04bbbb"   /* dmenu already selected foreground color */
+#define WM_COL_DMENU_OF		"#000000"   /* dmenu already selected background color */
 
 ////////////////////////////////////////////////////////////////////////////////
 //// terminal appearance

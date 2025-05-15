@@ -5,7 +5,7 @@
 
 #define WM_FONT			"Cascadia Mono:size=10:antialias=true:autohint=true"
 
-#define WM_BORDER_WIDTH		1 	/* border pixel of windows */
+#define WM_BORDER_WIDTH		3 	/* border pixel of windows */
 #define WM_GAP_WIDTH		0       /* gaps between windows */
 #define WM_SNAP			16      /* snap pixel */
 #define WM_SHOWBAR		1       /* 0 means no bar */
@@ -37,8 +37,8 @@
 	8 bright colors: red, green, yellow, blue, magenta, cyan, white
 */
 #define THEME_TERM_COLORS {\
-	"#000000", "#FB4B4E", "#7CB518", "#ED9B40", "#009FB7", "#5B5F97", "#087E8B", "#cccccc",\
-	"#000000", "#cccccc", "#cccccc", "#cccccc", "#cccccc", "#cccccc", "#cccccc", "#cccccc",\
-	[255] = 0, "#40ffff", "#555555", "#000000", }
+	"#7F7F8C", "#CD5C5C", "#9ACD32", "#BDB76B", "#75A0FF", "#EEEE00", "#CD853F", "#cecece",\
+        "#8A7F7F", "#FF0000", "#89FB98", "#F0E68C", "#6DCEEB", "#FFDE9B", "#FFA0A0", "#FEFEFE",\
+	[255] = 0, "#40FF40", "#555555", "#000000", }
 
 

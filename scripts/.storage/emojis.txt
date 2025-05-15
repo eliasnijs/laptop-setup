@@ -1,3 +1,4 @@
+🫡 saluting_face
 😂 joy
 ❤️ heart
 ♥️ heart_suit
@@ -228,7 +229,6 @@
 👨‍❤️‍💋‍👨 couple_man_kiss
 💑 couple_with_heart
 👩‍❤️‍👩 woman_woman
-👨‍❤️‍👨 man_man_love
 🍭 lollipop
 🎬 clapper
 🐷 pig

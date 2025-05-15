@@ -271,22 +271,11 @@ set termguicolors
 " colorscheme gruvbox
 " hi LspCxxHlGroupMemberVariable guifg=#83a598
 
-" color rose-pine
-" color darcula
 " colorscheme handmade
-" colorscheme solarized8
-" color black-and-white
-" color pablo
-" color darkblue
 " colorscheme twilight
-" colorscheme black-and-white
-" colorscheme gruvbox
-" color concoctis
-" color codedark
-color desert
+color desertEx
 
 autocmd VimEnter * wincmd p
-
 
 
 
